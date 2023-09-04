@@ -4,5 +4,6 @@ public class Testes {
         System.out.println(p1.getNome());
         System.out.println(p1.getNumero());
         System.out.println(p1.getDataDeNascimento());
+
     }
 }
