@@ -5,8 +5,9 @@ public class Medico extends Pessoa {
     private String numero;
     private String dataDeNascimento;
     private String area;
-    private ArrayList<String> horariosDisponiveis;
-    private ArrayList<String> horariosMarcados;
+    private ArrayList<Horario> horariosDisponiveis;
+    private ArrayList<Horario> horariosMarcados;
+    private ArrayList<Consulta> consultasMarcadas;
 
     @Override
     public String getNome() {
@@ -46,20 +47,28 @@ public class Medico extends Pessoa {
         this.area = area;
     }
 
-    public ArrayList<String> getHorariosDisponiveis() {
+    public ArrayList<Horario> getHorariosDisponiveis() {
         return horariosDisponiveis;
     }
 
-    public void setHorariosDisponiveis(ArrayList<String> horariosDisponiveis) {
+    public void setHorariosDisponiveis(ArrayList<Horario> horariosDisponiveis) {
         this.horariosDisponiveis = horariosDisponiveis;
     }
 
-    public ArrayList<String> getHorariosMarcados() {
+    public ArrayList<Horario> getHorariosMarcados() {
         return horariosMarcados;
     }
 
-    public void setHorariosMarcados(ArrayList<String> horariosMarcados) {
+    public void setHorariosMarcados(ArrayList<Horario> horariosMarcados) {
         this.horariosMarcados = horariosMarcados;
+    }
+
+    public ArrayList<Consulta> getConsultasMarcadas() {
+        return consultasMarcadas;
+    }
+
+    public void setConsultasMarcadas(ArrayList<Consulta> consultasMarcadas) {
+        this.consultasMarcadas = consultasMarcadas;
     }
 
     public Medico(String nome, String numero, String dataDeNascimento, String area){
@@ -67,15 +76,15 @@ public class Medico extends Pessoa {
         this.setArea(area);
         this.setHorariosDisponiveis(new ArrayList<>());
         this.setHorariosMarcados(new ArrayList<>());
+        this.setConsultasMarcadas(new ArrayList<>());
     }
-
 
     public void mostrarHorariosDisponiveis(){
         if(this.getHorariosDisponiveis().isEmpty()){
             System.out.println("Não há horários disponíveis.");
         } else {
             System.out.println("Horários disponíveis do Doutor " + this.getNome() + ":");
-            for (String h:this.getHorariosDisponiveis()) System.out.println("-> " + h);
+            for (Horario h:this.getHorariosDisponiveis()) System.out.println("-> " + h.print());
         }
     }
 
@@ -84,7 +93,7 @@ public class Medico extends Pessoa {
             System.out.println("Não há horários marcados.");
         } else {
             System.out.println("Horários marcados com o Doutor " + this.getNome() + ":");
-            for (String h:this.getHorariosDisponiveis()) System.out.println("-> " + h);
+            for (Horario h:this.getHorariosDisponiveis()) System.out.println("-> " + h.print());
         }
     }
 }

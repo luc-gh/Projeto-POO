@@ -30,20 +30,20 @@ public class Pessoa {
 
     public Pessoa(String nome, String numero, String dataDeNascimento){
         this.setNome(nome);
-        if (formatoAdequadoDeNumero(numero)) {
+        if (this.formatoAdequadoDeNumero(numero)) {
             this.setNumero(numero);
         } else throw new RuntimeException("Formato de número inválido.");
-        if (formatoAdequadoDeData(dataDeNascimento)) {
+        if (this.formatoAdequadoDeData(dataDeNascimento)) {
             this.setDataDeNascimento(dataDeNascimento);
         } else throw new RuntimeException("Formato de data inválido.");
     }
 
-    public static boolean formatoAdequadoDeNumero(String numero){
+    private boolean formatoAdequadoDeNumero(String numero){
         String regex = "(\\()?(\\d{2})?(\\))?(\\)?9?\\d{4}-?\\d{4})";
         return numero.matches(regex);
     }
 
-    public static boolean formatoAdequadoDeData(String data){
+    private boolean formatoAdequadoDeData(String data){
         String regex = "^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/(\\d{4})$";
         return data.matches(regex);
     }

@@ -1,7 +1,7 @@
 public class Consulta {
     private final Cliente cliente;
     private final Medico medico;
-    private final String horario;
+    private final Horario horario;
     private final Area area;
     private final Urgencia urgencia;
 
@@ -13,7 +13,7 @@ public class Consulta {
         return medico;
     }
 
-    public String getHorario() {
+    public Horario getHorario() {
         return horario;
     }
 
@@ -25,11 +25,12 @@ public class Consulta {
         return urgencia;
     }
 
-    public Consulta(Medico medico, Cliente cliente, String horario, Area area, Urgencia urgencia){
+    public Consulta(Medico medico, Cliente cliente, Horario horario, Area area, Urgencia urgencia){
         this.cliente = cliente;
         this.medico = medico;
         this.area = area;
         this.urgencia = urgencia;
-        //Falta horário (classes Medico/Cliente)
+        this.horario = horario;
+        this.medico.getConsultasMarcadas().add(this);  //Já adiciona esta consulta para o médico indicado
     }
 }
