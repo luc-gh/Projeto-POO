@@ -1,0 +1,90 @@
+import java.util.ArrayList;
+
+public class Medico extends Pessoa {
+    private String nome;
+    private String numero;
+    private String dataDeNascimento;
+    private String area;
+    private ArrayList<String> horariosDisponiveis;
+    private ArrayList<String> horariosMarcados;
+
+    @Override
+    public String getNome() {
+        return nome;
+    }
+
+    @Override
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    @Override
+    public String getNumero() {
+        return numero;
+    }
+
+    @Override
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    @Override
+    public String getDataDeNascimento() {
+        return dataDeNascimento;
+    }
+
+    @Override
+    public void setDataDeNascimento(String dataDeNascimento) {
+        this.dataDeNascimento = dataDeNascimento;
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
+    }
+
+    public ArrayList<String> getHorariosDisponiveis() {
+        return horariosDisponiveis;
+    }
+
+    public void setHorariosDisponiveis(ArrayList<String> horariosDisponiveis) {
+        this.horariosDisponiveis = horariosDisponiveis;
+    }
+
+    public ArrayList<String> getHorariosMarcados() {
+        return horariosMarcados;
+    }
+
+    public void setHorariosMarcados(ArrayList<String> horariosMarcados) {
+        this.horariosMarcados = horariosMarcados;
+    }
+
+    public Medico(String nome, String numero, String dataDeNascimento, String area){
+        super(nome, numero, dataDeNascimento);
+        this.setArea(area);
+        this.setHorariosDisponiveis(new ArrayList<>());
+        this.setHorariosMarcados(new ArrayList<>());
+    }
+
+
+    public void mostrarHorariosDisponiveis(){
+        if(this.getHorariosDisponiveis().isEmpty()){
+            System.out.println("Não há horários disponíveis.");
+        } else {
+            System.out.println("Horários disponíveis do Doutor " + this.getNome() + ":");
+            for (String h:this.getHorariosDisponiveis()) System.out.println("-> " + h);
+        }
+    }
+
+    public void mostrarHorariosMarcados(){
+        if(this.getHorariosMarcados().isEmpty()){
+            System.out.println("Não há horários marcados.");
+        } else {
+            System.out.println("Horários marcados com o Doutor " + this.getNome() + ":");
+            for (String h:this.getHorariosDisponiveis()) System.out.println("-> " + h);
+        }
+    }
+}

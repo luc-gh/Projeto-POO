@@ -5,5 +5,7 @@ public class Testes {
         System.out.println(p1.getNumero());
         System.out.println(p1.getDataDeNascimento());
 
+        Medico m = new Medico("Marcos", "(11)96572-2342", "18/12/1983", "Cirúrgia");
+        System.out.println(m.getArea());
     }
 }
