@@ -1,22 +1,35 @@
 import resources.Horario;
+import resources.Urgencia;
 
 public class Tratamento {
     private final Medico medicoResponsavel;
     private final Paciente paciente;
     private final Horario horario;
+    private final Urgencia urgencia;
+
     private String relatorio;
 
-    public Tratamento(Medico medicoResponsavel, Paciente paciente, Horario horario) {
+    public Tratamento(Medico medicoResponsavel, Paciente paciente, Horario horario, Urgencia urgencia) {
         this.medicoResponsavel = medicoResponsavel;
         this.paciente = paciente;
         this.horario = horario;
+        this.urgencia = urgencia;
         this.relatorio = "Relatório não fornecido.";
+    }
+
+    public Tratamento(Medico medicoResponsavel, Paciente paciente, Horario horario, Urgencia urgencia, String relatorio) {
+        this.medicoResponsavel = medicoResponsavel;
+        this.paciente = paciente;
+        this.horario = horario;
+        this.urgencia = urgencia;
+        this.relatorio = relatorio;
     }
 
     public Tratamento(Medico medicoResponsavel, Paciente paciente, Horario horario, String relatorio) {
         this.medicoResponsavel = medicoResponsavel;
         this.paciente = paciente;
         this.horario = horario;
+        this.urgencia = Urgencia.Rotina;
         this.relatorio = relatorio;
     }
 
@@ -38,6 +51,10 @@ public class Tratamento {
 
     public void setRelatorio(String relatorio) {
         this.relatorio = relatorio;
+    }
+
+    public Urgencia getUrgencia() {
+        return urgencia;
     }
 
     @Override
