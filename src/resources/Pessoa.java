@@ -41,7 +41,8 @@ public class Pessoa {
     }
 
     private boolean formatoAdequadoDeNumero(String numero){
-        String regex = "(\\()?(\\d{2})?(\\))?(\\)?9?\\d{4}-?\\d{4})";
+        // A regex de antes não permitia o espaço entre o ddd e o numero
+        String regex = "(\\()?(\\d{2})?(\\))?(\\ )?9?\\d{4}-?\\d{4}";
         return numero.matches(regex);
     }
 
