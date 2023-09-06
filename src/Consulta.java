@@ -1,13 +1,13 @@
 public class Consulta {
-    private final Cliente cliente;
+    private final Paciente paciente;
     private final Medico medico;
     private final Horario horario;
     private final Area area;
     private final Urgencia urgencia;
     private Status status;
 
-    public Cliente getCliente() {
-        return cliente;
+    public Paciente getCliente() {
+        return paciente;
     }
 
     public Medico getMedico() {
@@ -34,8 +34,8 @@ public class Consulta {
         this.status = status;
     }
 
-    public Consulta(Medico medico, Cliente cliente, Horario horario, Area area, Urgencia urgencia){
-        this.cliente = cliente;
+    public Consulta(Medico medico, Paciente paciente, Horario horario, Area area, Urgencia urgencia){
+        this.paciente = paciente;
         this.medico = medico;
         this.area = area;
         this.urgencia = urgencia;
@@ -52,6 +52,7 @@ public class Consulta {
 
     public void realizarConsulta(String orientacoes){
         this.setStatus(Status.Realizada);
-        System.out.println("Consulta realizada. \n Orientações: " + orientacoes);
+        System.out.println("Consulta realizada. \n Orientações: " + orientacoes + "\n\nTratamento:");
+        this.getMedico().designarTratamento();
     }
 }

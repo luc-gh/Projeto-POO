@@ -4,7 +4,7 @@ public class Medico extends Pessoa {
     private String nome;
     private String numero;
     private String dataDeNascimento;
-    private String area;
+    private Area area;
     private ArrayList<Horario> horariosDisponiveis;
     private ArrayList<Horario> horariosMarcados;
     private ArrayList<Consulta> consultasMarcadas;
@@ -39,11 +39,11 @@ public class Medico extends Pessoa {
         this.dataDeNascimento = dataDeNascimento;
     }
 
-    public String getArea() {
+    public Area getArea() {
         return area;
     }
 
-    public void setArea(String area) {
+    public void setArea(Area area) {
         this.area = area;
     }
 
@@ -71,7 +71,7 @@ public class Medico extends Pessoa {
         this.consultasMarcadas = consultasMarcadas;
     }
 
-    public Medico(String nome, String numero, String dataDeNascimento, String area){
+    public Medico(String nome, String numero, String dataDeNascimento, Area area){
         super(nome, numero, dataDeNascimento);
         this.setArea(area);
         this.setHorariosDisponiveis(new ArrayList<>());
@@ -95,5 +95,16 @@ public class Medico extends Pessoa {
             System.out.println("Horários marcados com o Doutor " + this.getNome() + ":");
             for (Horario h:this.getHorariosDisponiveis()) System.out.println("-> " + h.print());
         }
+    }
+
+    public void marcarConsulta(Paciente paciente, Horario horario, Urgencia urgencia){
+        this.getConsultasMarcadas().add(new Consulta(this, paciente, horario, this.getArea(), urgencia));
+        System.out.println("Consulta com o paciente " + paciente.getNome() + " marcada com o Doutor " +
+                this.getNome() + " para o dia " + horario.getDia() + "/" + horario.getMes() + ", " + horario.getHora() + ".");
+
+    }
+
+    public void designarTratamento(){
+
     }
 }

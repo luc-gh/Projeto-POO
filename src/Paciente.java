@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-
-public class Cliente extends Pessoa {
+public class Paciente extends Pessoa {
     private String nome;
     private String numero;
     private String dataDeNascimento;
@@ -36,7 +34,7 @@ public class Cliente extends Pessoa {
         this.dataDeNascimento = dataDeNascimento;
     }
 
-    public Cliente(String nome, String numero, String dataDeNascimento){
+    public Paciente(String nome, String numero, String dataDeNascimento){
         super(nome, numero, dataDeNascimento);
     }
 }
