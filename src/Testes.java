@@ -1,4 +1,6 @@
-import resources.Area;
+import resources.*;
+
+import java.util.Scanner;
 
 public class Testes {
     public static void main(String[] args) {
@@ -9,5 +11,13 @@ public class Testes {
 
         Medico m = new Medico("Marcos", "(11)96572-2342", "18/12/1983", Area.Geral);
         System.out.println(m.getArea());
+
+        System.out.println("Digite hora: ");
+        Scanner scanner = new Scanner(System.in);
+        String hora = scanner.nextLine();
+        short dia = 26;
+        short mes = 2;
+        Horario horario = new Horario(dia, mes, hora);
+
     }
 }
