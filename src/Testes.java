@@ -1,4 +1,4 @@
-import enums.Area;
+import resources.Area;
 
 public class Testes {
     public static void main(String[] args) {

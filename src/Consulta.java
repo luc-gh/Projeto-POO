@@ -1,4 +1,4 @@
-import enums.*;
+import resources.*;
 
 public class Consulta {
     private final Paciente paciente;

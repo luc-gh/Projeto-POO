@@ -1,4 +1,4 @@
-package enums;
+package resources;
 
 public enum Area {
     Geral, Pediatria, Cardiologia, Dermatologia, Ginecologia, Ortopedia, Oftalmologia,

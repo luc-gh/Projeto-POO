@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-import enums.*;
+import resources.*;
 
 public class Medico extends Pessoa {
     private String nome;

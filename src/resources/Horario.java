@@ -1,3 +1,5 @@
+package resources;
+
 public class Horario {
     private short dia;
     private short mes;
