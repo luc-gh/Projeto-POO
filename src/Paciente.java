@@ -1,3 +1,5 @@
+import resources.Pessoa;
+
 public class Paciente extends Pessoa {
     private String nome;
     private String numero;
