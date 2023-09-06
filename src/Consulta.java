@@ -1,3 +1,5 @@
+import enums.*;
+
 public class Consulta {
     private final Paciente paciente;
     private final Medico medico;
