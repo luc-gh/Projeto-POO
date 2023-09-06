@@ -27,5 +27,6 @@ A ideia é facilitar o agendamento de consultas, registrar tratamentos em andame
 ### Diagrama de Classes
 <hr>
 
-
-
+> Diagrama parcial
+>
+> ![Diagrama parcial](src/diagram/class_diagram.png)
