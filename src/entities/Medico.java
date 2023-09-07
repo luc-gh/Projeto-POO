@@ -110,5 +110,12 @@ public class Medico extends Pessoa {
 
     public void designarTratamento(){
 
+        System.out.println("--------------------\nEscolha a opção de tratamento:");
+    }
+
+    public void prescrever(){
+
+        System.out.println("--------------------\nEscolha a opção de tratamento:");
+
     }
 }
