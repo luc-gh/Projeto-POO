@@ -1,5 +1,8 @@
+package entities;
+
 import java.util.ArrayList;
 import resources.*;
+import services.*;
 
 public class Medico extends Pessoa {
     private String nome;

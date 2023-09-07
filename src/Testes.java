@@ -1,4 +1,6 @@
 import resources.*;
+import entities.*;
+import services.*;
 
 import java.util.ArrayList;
 import java.util.Scanner;

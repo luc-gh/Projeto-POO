@@ -1,36 +1,32 @@
-import resources.Horario;
-import resources.Urgencia;
+package services;
+
+import entities.*;
+import resources.*;
 
 public class Tratamento {
     private final Medico medicoResponsavel;
     private final Paciente paciente;
-    private final Horario horario;
     private final Urgencia urgencia;
+    private final Area area;
 
     private String relatorio;
 
-    public Tratamento(Medico medicoResponsavel, Paciente paciente, Horario horario, Urgencia urgencia) {
+    //Tratamento não tem horário fixo
+
+    public Tratamento(Medico medicoResponsavel, Paciente paciente, Urgencia urgencia) {
         this.medicoResponsavel = medicoResponsavel;
+        this.area = medicoResponsavel.getArea();
         this.paciente = paciente;
-        this.horario = horario;
         this.urgencia = urgencia;
         this.relatorio = "Relatório não fornecido.";
     }
 
-    public Tratamento(Medico medicoResponsavel, Paciente paciente, Horario horario, Urgencia urgencia, String relatorio) {
+    public Tratamento(Medico medicoResponsavel, Paciente paciente, Urgencia urgencia, String relatorio) {
         this.medicoResponsavel = medicoResponsavel;
         this.paciente = paciente;
-        this.horario = horario;
         this.urgencia = urgencia;
         this.relatorio = relatorio;
-    }
-
-    public Tratamento(Medico medicoResponsavel, Paciente paciente, Horario horario, String relatorio) {
-        this.medicoResponsavel = medicoResponsavel;
-        this.paciente = paciente;
-        this.horario = horario;
-        this.urgencia = Urgencia.Rotina;
-        this.relatorio = relatorio;
+        area = medicoResponsavel.getArea();
     }
 
     public Medico getMedicoResponsavel() {
@@ -39,10 +35,6 @@ public class Tratamento {
 
     public Paciente getPaciente() {
         return paciente;
-    }
-
-    public Horario getHorario() {
-        return horario;
     }
 
     public String getRelatorio() {
@@ -55,6 +47,10 @@ public class Tratamento {
 
     public Urgencia getUrgencia() {
         return urgencia;
+    }
+
+    public Area getArea() {
+        return area;
     }
 
     @Override

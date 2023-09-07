@@ -1,4 +1,7 @@
+package services;
+
 import resources.*;
+import entities.*;
 
 public class Consulta {
     private final Paciente paciente;
@@ -36,10 +39,10 @@ public class Consulta {
         this.status = status;
     }
 
-    public Consulta(Medico medico, Paciente paciente, Horario horario, Area area, Urgencia urgencia){
+    public Consulta(Medico medico, Paciente paciente, Horario horario, Urgencia urgencia){
         this.paciente = paciente;
         this.medico = medico;
-        this.area = area;
+        this.area = medico.getArea();
         this.urgencia = urgencia;
         this.horario = horario;
         this.setStatus(Status.Agendada);

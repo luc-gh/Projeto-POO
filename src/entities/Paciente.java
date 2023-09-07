@@ -1,3 +1,5 @@
+package entities;
+
 import resources.Pessoa;
 
 public class Paciente extends Pessoa {
