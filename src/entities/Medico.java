@@ -102,7 +102,7 @@ public class Medico extends Pessoa {
     }
 
     public void marcarConsulta(Paciente paciente, Horario horario, Urgencia urgencia){
-        this.getConsultasMarcadas().add(new Consulta(this, paciente, horario, this.getArea(), urgencia));
+        this.getConsultasMarcadas().add(new Consulta(this, paciente, horario, urgencia));
         System.out.println("Consulta com o paciente " + paciente.getNome() + " marcada com o Doutor " +
                 this.getNome() + " para o dia " + horario.getDia() + "/" + horario.getMes() + ", " + horario.getHora() + ".");
 
