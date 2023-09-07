@@ -1,23 +1,23 @@
 package resources;
 
 public class Horario {
-    private short dia;
-    private short mes;
+    private int dia;
+    private int mes;
     private String hora;
 
-    public short getDia() {
+    public int getDia() {
         return dia;
     }
 
-    public void setDia(short dia) {
+    public void setDia(int dia) {
         this.dia = dia;
     }
 
-    public short getMes() {
+    public int getMes() {
         return mes;
     }
 
-    public void setMes(short mes) {
+    public void setMes(int mes) {
         this.mes = mes;
     }
 
@@ -29,7 +29,7 @@ public class Horario {
         this.hora = hora;
     }
 
-    public Horario(short dia, short mes, String hora){
+    public Horario(int dia, int mes, String hora){
         this.setDia(dia);
         this.setMes(mes);
         if (this.formatoAdequadoDeHora(hora)) this.setHora(hora);

@@ -97,6 +97,13 @@ public class Testes {
                 }
             }
         }
+
+
+        Medico medico = new Medico("Gilberto Heizenberg", "(11)96783-1420", "17/12/1970", Area.Cardiologia);
+        Paciente paciente = new Paciente("Mário Rodrigues Santos", "(11)99627-3467", "02/10/1985");
+        Consulta consulta = medico.marcarConsulta(paciente, new Horario(10, 12, "14:00"), Urgencia.Triagem);
+        consulta.realizarConsulta("Após a consulta, o paciente deve seguir o tratamento " +
+                "e fazer uma nova consulta após um tempo adequado.");
     }
 }
 

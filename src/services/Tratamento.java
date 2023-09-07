@@ -3,6 +3,8 @@ package services;
 import entities.*;
 import resources.*;
 
+import java.util.Scanner;
+
 public class Tratamento {
     private final Medico medicoResponsavel;
     private final Paciente paciente;
@@ -10,8 +12,6 @@ public class Tratamento {
     private final Area area;
 
     private String relatorio;
-
-    //Tratamento não tem horário fixo
 
     public Tratamento(Medico medicoResponsavel, Paciente paciente, Urgencia urgencia) {
         this.medicoResponsavel = medicoResponsavel;
@@ -55,7 +55,30 @@ public class Tratamento {
 
     @Override
     public String toString(){
-        return "Médico responsável: "+getMedicoResponsavel().getNome()+"\n"+"Cliente: "
-                +getPaciente().getNome()+"\n"+"Relatório: "+getRelatorio();
+        return "Médico responsável: " + getMedicoResponsavel().getNome() + "\n" + "Cliente: " + getPaciente().getNome();
+    }
+
+    public void tratamento(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("O paciente mostra sinais reais da doença específica da área? (S/N)" +
+                "\nR: ");
+        String resp = scanner.next().toUpperCase();
+        scanner.close();
+        System.out.println("-----------------------\nO tratamento indicado é:");
+        System.out.println(this.toString());
+        switch (resp) {
+            case "S":
+                Prescricao prescricao1 = new Prescricao(this.getMedicoResponsavel(), this.getPaciente(), this.getRelatorio());
+                prescricao1.listarPrescricoesRecomendadas();
+                break;
+            case "N":
+                Prescricao prescricao2 = new Prescricao(this.getMedicoResponsavel(), this.getPaciente(), this.getRelatorio());
+                prescricao2.setArea(Area.Geral);
+                prescricao2.listarPrescricoesRecomendadas();
+                break;
+            default:
+                System.out.println("Erro!");
+                throw new RuntimeException("Resposta inválida!");
+        }
     }
 }

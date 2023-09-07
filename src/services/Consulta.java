@@ -11,7 +11,7 @@ public class Consulta {
     private final Urgencia urgencia;
     private Status status;
 
-    public Paciente getCliente() {
+    public Paciente getPaciente() {
         return paciente;
     }
 
@@ -57,7 +57,7 @@ public class Consulta {
 
     public void realizarConsulta(String orientacoes){
         this.setStatus(Status.Realizada);
-        System.out.println("Consulta realizada. \n Orientações: " + orientacoes + "\n\nTratamento:");
-        this.getMedico().designarTratamento();
+        System.out.println("Consulta realizada. \nOrientações: " + orientacoes + "\n");
+        this.getMedico().designarTratamento(this.getPaciente(), this.getUrgencia());
     }
 }

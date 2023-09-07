@@ -1,6 +1,8 @@
 package entities;
 
 import java.util.ArrayList;
+import java.util.Scanner;
+
 import resources.*;
 import services.*;
 
@@ -101,21 +103,20 @@ public class Medico extends Pessoa {
         }
     }
 
-    public void marcarConsulta(Paciente paciente, Horario horario, Urgencia urgencia){
-        this.getConsultasMarcadas().add(new Consulta(this, paciente, horario, urgencia));
+    public Consulta marcarConsulta(Paciente paciente, Horario horario, Urgencia urgencia){
+        Consulta c = new Consulta(this, paciente, horario, urgencia);
+        this.getConsultasMarcadas().add(c);
         System.out.println("Consulta com o paciente " + paciente.getNome() + " marcada com o Doutor " +
                 this.getNome() + " para o dia " + horario.getDia() + "/" + horario.getMes() + ", " + horario.getHora() + ".");
-
+        return c;
     }
 
-    public void designarTratamento(){
-
-        System.out.println("--------------------\nEscolha a opção de tratamento:");
-    }
-
-    public void prescrever(){
-
-        System.out.println("--------------------\nEscolha a opção de tratamento:");
-
+    public void designarTratamento(Paciente paciente, Urgencia urgencia){
+        Tratamento tratamento = new Tratamento(this, paciente, urgencia);
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Relatório: ");
+        String s = sc.nextLine();
+        if (s.length() > 5) tratamento.setRelatorio(s);
+        tratamento.tratamento();
     }
 }
