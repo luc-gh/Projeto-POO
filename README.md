@@ -26,6 +26,24 @@ A ideia é facilitar o agendamento de consultas, registrar tratamentos em andame
 
 <hr>
 
-### Diagrama de Classes
+### Diagramas de Classes
 
- ![Diagrama parcial](src/diagram/class_diagram.png)
+> Ortogonal por canais (orientação de cima para baixo)
+> 
+> ![Diagrama ortogonal por canais](src/diagrams/ortogonal_canais.png)
+
+> Radial circular (orientação de cima para baixo)
+> 
+> ![](src/diagrams/radial_circular.png)
+
+> Radial de ciclo único (orientação de cima para baixo)
+> 
+> ![Radial de ciclo único](src/diagrams/radial_ciclo_unico.png)
+
+> Por redes orgânicas (orientação de baixo para cima)
+> 
+> ![Redes orgânicas](src/diagrams/redes_organicas.png)
+
+> Ortogonal por grupos hierárquicos
+> 
+> ![Ortogonal por grupos hierárquicos](src/diagrams/ortogonal_grupos_hierarquicos.png)

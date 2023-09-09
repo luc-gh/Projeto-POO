@@ -103,20 +103,27 @@ public class Medico extends Pessoa {
         }
     }
 
-    public Consulta marcarConsulta(Paciente paciente, Horario horario, Urgencia urgencia){
+    public void marcarConsulta(Paciente paciente, Horario horario, Urgencia urgencia){
         Consulta c = new Consulta(this, paciente, horario, urgencia);
         this.getConsultasMarcadas().add(c);
         System.out.println("Consulta com o paciente " + paciente.getNome() + " marcada com o Doutor " +
                 this.getNome() + " para o dia " + horario.getDia() + "/" + horario.getMes() + ", " + horario.getHora() + ".");
-        return c;
     }
 
-    public void designarTratamento(Paciente paciente, Urgencia urgencia){
-        Tratamento tratamento = new Tratamento(this, paciente, urgencia);
+    public void designarTratamento(Consulta consulta, String orientacoes){
+        Tratamento tratamento = new Tratamento(this, consulta.getPaciente(), consulta.getUrgencia());
         Scanner sc = new Scanner(System.in);
         System.out.print("Relatório: ");
         String s = sc.nextLine();
         if (s.length() > 5) tratamento.setRelatorio(s);
+        consulta.realizarConsulta(orientacoes);
         tratamento.tratamento();
+        this.consultasMarcadas.remove(consulta);
     }
+
+    public void cancelarConsulta(){
+
+    }
+
+
 }

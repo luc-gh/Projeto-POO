@@ -13,8 +13,6 @@ public class Consulta {
     private final Area area;
     private final Urgencia urgencia;
     private Status status;
-    public static HashSet<Consulta> consultas;
-
     public Paciente getPaciente() {
         return paciente;
     }
@@ -50,36 +48,19 @@ public class Consulta {
         this.urgencia = urgencia;
         this.horario = horario;
         this.setStatus(Status.Agendada);
-        consultas.add(this);
         this.medico.getConsultasMarcadas().add(this);  //Já adiciona esta consulta para o médico indicado
     }
 
-    public void cancelarConsulta(){
+    public synchronized void cancelarConsulta(){
         this.setStatus(Status.Cancelada);
-        consultas.remove(this);
         this.getMedico().getConsultasMarcadas().remove(this);
         System.out.println("Esta consulta foi cancelada.");
     }
 
-    public void realizarConsulta(String orientacoes){
+    public synchronized void realizarConsulta(String orientacoes){
         this.setStatus(Status.Realizada);
         System.out.println("Consulta realizada. \nOrientações: " + orientacoes + "\n");
-        this.getMedico().designarTratamento(this.getPaciente(), this.getUrgencia());
-        consultas.remove(this);
     }
 
-    public static void listarConsultas(){
-        int i = 1;
-        for(Consulta c:consultas){
-            System.out.println("\nConsulta --------- " +
-                    "\nMédico: " + c.getMedico().getNome() +
-                    "\nPaciente: " + c.getPaciente().getNome() +
-                    "\nHorário: " + c.getHorario().print() +
-                    "\nUrgência: " + c.getUrgencia() +
-                    "\nÁrea: " + c.getArea() +
-                    "\nÍndice: " + i
-            );
-            i++;
-        }
-    }
+
 }

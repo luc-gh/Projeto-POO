@@ -156,11 +156,7 @@ public class Testes {
 
                 }
                 case 2 -> {
-                    Consulta.listarConsultas();
-                    System.out.print("\nDigite o índice: ");
-                    int i = scanner.nextInt();
-
-                    //Falta lógica de exclusão da consulta
+                    for (Medico m:testes.medicosDoSistema) m.mostrarHorariosMarcados();
                 }
                 case 3 -> {
                     System.out.println("Digite o nome do médico:\n");
