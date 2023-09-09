@@ -6,31 +6,99 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Testes {
+
+    ArrayList<Medico> medicosDoSistema = new ArrayList<>();
+
+    public void configuracaoDeSistema(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("""
+                =====================================
+                       CONFIGURAÇÃO DE SISTEMA
+                =====================================
+        """);
+        int n;
+        try {
+            System.out.print("\nDigite o número de médicos do sistema: ");
+            n = sc.nextInt();
+        } catch (Exception e) {
+            throw new RuntimeException("Erro! Entrada de dados inválida: " + e);
+        }
+
+        System.out.println("""
+                --------------------------------------------------
+                -> A seguir, defina as informações de cada médico.
+                --------------------------------------------------
+                """);
+
+        System.out.println();
+        System.out.println("""
+                OBS: Para a área, escolha dentre as opções:
+                     (1) Geral  (2) Pediatria  (3) Cardiologia  (4) Dermatologia
+                     (5) Ginecologia  (6) Ortopedia  (7) Oftalmologia  (8) Neurologia
+                     (9) Psiquiatria  (10) Odontologia  (11) Reumatologia  (12) Otorrinolaringologia
+                     (13) Oncologia  (14) Hematologia  (15) Alergologia  (16) Infectologia
+                """);
+        for(int i = 1; i <= n; i++){
+            System.out.println("\n" + i + "º médico\n--------------------");
+            System.out.print("\nNome: ");
+            String nome = sc.nextLine();
+            System.out.println("\nNúmero: ");
+            String numero = sc.nextLine();
+            System.out.println("\nData de nascimento: ");
+            String data = sc.nextLine();
+            System.out.println("\nÁrea: ");
+            int escolha = sc.nextInt();
+            Area area = null;
+            switch(escolha){
+                case 1 -> area = Area.Geral;
+                case 2 -> area = Area.Pediatria;
+                case 3 -> area = Area.Cardiologia;
+                case 4 -> area = Area.Dermatologia;
+                case 5 -> area = Area.Ginecologia;
+                case 6 -> area = Area.Ortopedia;
+                case 7 -> area = Area.Oftalmologia;
+                case 8 -> area = Area.Neurologia;
+                case 9 -> area = Area.Psiquiatria;
+                case 10 -> area = Area.Odontologia;
+                case 11 -> area = Area.Reumatologia;
+                case 12 -> area = Area.Otorrinolaringologia;
+                case 13 -> area = Area.Oncologia;
+                case 14 -> area = Area.Hematologia;
+                case 15 -> area = Area.Alergologia;
+                case 16 -> area = Area.Infectologia;
+                default -> {
+                    System.out.println("\nOpção inválida. Área Geral assumida.");
+                    area = Area.Geral;
+                }
+            }
+            this.medicosDoSistema.add(new Medico(nome, numero, data, area));
+        }
+
+        System.out.println("Agora, defina os horários disponíveis para cada médico:");
+        for(Medico m:this.medicosDoSistema){
+
+        }
+
+
+    }
+
     public static void main(String[] args) {
 
-        ArrayList<Medico> medicos = new ArrayList<>();
 
-        //Medicos de exemplo
-        Medico medico1 = new Medico("Dr. Ana Silva", "(11)9555-1234", "15/03/1975", Area.Cardiologia);
-        Medico medico2 = new Medico("Dr. Carlos Ferreira", "(21)9777-4567", "22/07/1980", Area.Ortopedia);
-        Medico medico3 = new Medico("Dra. Maria Rodrigues", "(31)9888-7890", "10/05/1985", Area.Pediatria);
-
-        medicos.add(medico1);
-        medicos.add(medico2);
-        medicos.add(medico3);
-
-        boolean controle = true;
-        Scanner scanner = new Scanner(System.in);
-
-        while (controle){
+        /*
+        while(controle){
             System.out.println("Bem-vindo ao Agendamento de Consultas");
             System.out.println("=====================================");
             System.out.println("Selecione uma opção:\n");
-            System.out.println("1 - Marcar Consulta\n2 - Cancelar Consulta\n" +
-                    "3 - Verificar Horários Disponíveis\n4 - Verificar Consultas Marcadas");
+            System.out.println("""
+                    1 - Marcar Consulta
+                    2 - Cancelar Consulta
+                    3 - Verificar Horários Disponíveis
+                    4 - Verificar Consultas Marcadas
+            """);
             int opcao = Integer.parseInt(scanner.nextLine());
-            switch (opcao){
-                case 1 ->{
+            switch (opcao) {
+                case 1 -> {
                     System.out.println("Digite o nome do Cliente: ");
                     String nome = scanner.nextLine();
                     System.out.println("Digite o número de telefone do Cliente: ");
@@ -50,7 +118,7 @@ public class Testes {
                             System.out.println("Digite a hora da consulta: ");
                             String hora = scanner.nextLine();
                             Horario horario = new Horario(dia, mes, hora);
-                            if(!medico.getHorariosDisponiveis().contains(horario)){
+                            if (!medico.getHorariosDisponiveis().contains(horario)) {
                                 System.out.println("Qual a urgência da consulta: ");
                                 String urgencia = scanner.nextLine();
                                 medico.marcarConsulta(paciente, horario, Urgencia.valueOf(urgencia));
@@ -96,14 +164,8 @@ public class Testes {
                     controle = false;
                 }
             }
-        }
+        }*/
 
-
-        Medico medico = new Medico("Gilberto Heizenberg", "(11)96783-1420", "17/12/1970", Area.Cardiologia);
-        Paciente paciente = new Paciente("Mário Rodrigues Santos", "(11)99627-3467", "02/10/1985");
-        Consulta consulta = medico.marcarConsulta(paciente, new Horario(10, 12, "14:00"), Urgencia.Triagem);
-        consulta.realizarConsulta("Após a consulta, o paciente deve seguir o tratamento " +
-                "e fazer uma nova consulta após um tempo adequado.");
     }
 }
 
