@@ -12,42 +12,48 @@ public class Testes {
     public void configuracaoDeSistema(){
         Scanner sc = new Scanner(System.in);
         System.out.println("""
-                =====================================
-                       CONFIGURAÇÃO DE SISTEMA
-                =====================================
+        =====================================
+               CONFIGURAÇÃO DE SISTEMA
+        =====================================
         """);
         int n;
         try {
-            System.out.print("\nDigite o número de médicos do sistema: ");
+            System.out.print("Digite o número de médicos do sistema: ");
             n = sc.nextInt();
         } catch (Exception e) {
             throw new RuntimeException("Erro! Entrada de dados inválida: " + e);
         }
-
+        System.out.println();
         System.out.println("""
                 --------------------------------------------------
                 -> A seguir, defina as informações de cada médico.
                 --------------------------------------------------
-                """);
-
-        System.out.println();
-        System.out.println("""
+                
                 OBS: Para a área, escolha dentre as opções:
-                     (1) Geral  (2) Pediatria  (3) Cardiologia  (4) Dermatologia
-                     (5) Ginecologia  (6) Ortopedia  (7) Oftalmologia  (8) Neurologia
-                     (9) Psiquiatria  (10) Odontologia  (11) Reumatologia  (12) Otorrinolaringologia
-                     (13) Oncologia  (14) Hematologia  (15) Alergologia  (16) Infectologia
+                     (1) Geral          (9) Psiquiatria
+                     (2) Pediatria      (10) Odontologia
+                     (3) Cardiologia    (11) Reumatologia
+                     (4) Dermatologia   (12) Otorrinolaringologia
+                     (5) Ginecologia    (13) Oncologia
+                     (6) Ortopedia      (14) Hematologia
+                     (7) Oftalmologia   (15) Alergologia
+                     (8) Neurologia     (16) Infectologia
                 """);
         for(int i = 1; i <= n; i++){
-            System.out.println("\n" + i + "º médico\n--------------------");
-            System.out.print("\nNome: ");
+            System.out.println(i + "º médico\n--------------------");
+            System.out.print("Nome: ");
+            sc.next();
             String nome = sc.nextLine();
-            System.out.println("\nNúmero: ");
+
+            System.out.print("Número: ");
             String numero = sc.nextLine();
-            System.out.println("\nData de nascimento: ");
+
+            System.out.print("Data de nascimento: ");
             String data = sc.nextLine();
-            System.out.println("\nÁrea: ");
+
+            System.out.print("Área: ");
             int escolha = sc.nextInt();
+
             Area area = null;
             switch(escolha){
                 case 1 -> area = Area.Geral;
@@ -72,21 +78,41 @@ public class Testes {
                 }
             }
             this.medicosDoSistema.add(new Medico(nome, numero, data, area));
+            System.out.println();
         }
 
         System.out.println("Agora, defina os horários disponíveis para cada médico:");
-        for(Medico m:this.medicosDoSistema){
-
+        for (Medico medico : this.medicosDoSistema) {
+            while (true) {
+                try {
+                    System.out.print("\nDigite o dia: ");
+                    int dia = sc.nextInt();
+                    System.out.print("\nDigite o mês: ");
+                    int mes = sc.nextInt();
+                    System.out.print("\nDigite o horário (atente ao formato hh:mm): ");
+                    String hora = sc.nextLine();
+                    Horario h = new Horario(dia, mes, hora);
+                    medico.getHorariosDisponiveis().add(h);
+                    System.out.println("\n\nHorário adicionado: " + h.print() + " para o médico " + medico.getNome() + ".");
+                } catch (Exception e) {
+                    throw new RuntimeException("Erro: " + e);
+                }
+                System.out.println("\nAdicionar mais um horário (S/N)? R: ");
+                String c = sc.next();
+                if (c.equals("S")) continue;
+                else break;
+            }
         }
-
-
+        System.out.println("\n=================================\nFim de configuração do sistema");
     }
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Testes testes = new Testes();
 
+        testes.configuracaoDeSistema();
 
-        /*
-        while(controle){
+        while(true){
             System.out.println("Bem-vindo ao Agendamento de Consultas");
             System.out.println("=====================================");
             System.out.println("Selecione uma opção:\n");
@@ -109,7 +135,7 @@ public class Testes {
 
                     System.out.println("Qual a área do atendimento?");
                     String area = scanner.nextLine();
-                    for(Medico medico : medicos){
+                    for(Medico medico : testes.medicosDoSistema){
                         if (medico.getArea() == Area.valueOf(area)){
                             System.out.println("Digite o dia da consulta: ");
                             short dia = Short.parseShort(scanner.nextLine());
@@ -125,18 +151,21 @@ public class Testes {
                             } else {
                                 System.out.println("Horário indisponível.");
                             }
-
                         }
                     }
 
                 }
                 case 2 -> {
+                    Consulta.listarConsultas();
+                    System.out.print("\nDigite o índice: ");
+                    int i = scanner.nextInt();
 
+                    //Falta lógica de exclusão da consulta
                 }
                 case 3 -> {
                     System.out.println("Digite o nome do médico:\n");
                     String nomeMedico = scanner.nextLine();
-                    for(Medico medico : medicos){
+                    for(Medico medico : testes.medicosDoSistema){
                         if (medico.getNome().equals(nomeMedico)){
                             for(Horario horario : medico.getHorariosDisponiveis()){
                                 horario.print();
@@ -149,7 +178,7 @@ public class Testes {
                 case 4 -> {
                     System.out.println("Digite o nome do médico:\n");
                     String nomeMedico = scanner.nextLine();
-                    for(Medico medico : medicos){
+                    for(Medico medico : testes.medicosDoSistema){
                         if (medico.getNome().equals(nomeMedico)){
                             for(Consulta consulta : medico.getConsultasMarcadas()){
                                 consulta.getHorario().print();
@@ -160,12 +189,9 @@ public class Testes {
                         }
                     }
                 }
-                default -> {
-                    controle = false;
-                }
+                default -> {break;}
             }
-        }*/
-
+        }
     }
 }
 
