@@ -44,6 +44,6 @@ A ideia é facilitar o agendamento de consultas, registrar tratamentos em andame
 > 
 > ![Redes orgânicas](src/diagrams/redes_organicas.png)
 
-> Ortogonal por grupos hierárquicos
+> Ortogonal por grupos hierárquicos (orientação da esquerda para a direita)
 > 
 > ![Ortogonal por grupos hierárquicos](src/diagrams/ortogonal_grupos_hierarquicos.png)
