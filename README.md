@@ -13,7 +13,7 @@
 <hr>
 
 #### 🔍 Área  de trabalho
-A área de trabalho em questão é a gestão de serviços de saúde em clínicas ou hospitais. O tema do projeto é o "Sistema de Gerenciamento de Consultas Médicas". Este sistema é projetado para facilitar o agendamento de consultas, o registro de tratamentos médicos e a manutenção de informações sobre médicos e pacientes.
+A área do projeto em questão é "Sistemas de Gestão de Serviços" com o tema "Sistema de Gerenciamento de Clínica Médica". Este sistema visa criar um ambiente que ajude o gerenciamento de uma clínica médica, integrando funções de cadastro e manutenção de informações de médicos e pacientes, agendamento de consultas e registro e controle de tratamentos médicos.
 
 #### ⭐️ Importância do Tema
 * **Eficiência Operacional:** O sistema melhora a eficiência ao automatizar o agendamento de consultas, reduzindo o tempo gasto em tarefas administrativas.
