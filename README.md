@@ -28,9 +28,13 @@ A ideia é facilitar o agendamento de consultas, registrar tratamentos em andame
 
 ### Diagramas de Classes
 
-> Ortogonal compacto
+> Ortogonal compacto (sem métodos, instâncias nem atributos)
 > 
 > ![Ortogonal compacto](src/diagrams/ortogonal_compacto.png)
+
+> Ortogonal hierárquico (sem dependências, orientado de cima para baixo)
+> 
+> ![Ortogonal hierárquico](src/diagrams/ortogonal_hierarquico.png)
 
 > Ortogonal por canais (orientação de cima para baixo)
 > 
