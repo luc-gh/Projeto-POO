@@ -28,30 +28,3 @@ A ideia é facilitar o agendamento de consultas, registrar tratamentos em andame
 
 ### Diagramas de Classes
 
-> Ortogonal compacto (sem métodos, instâncias nem atributos)
-> 
-> ![Ortogonal compacto](src/diagrams/ortogonal_compacto.png)
-
-> Ortogonal hierárquico (sem dependências, orientado de cima para baixo)
-> 
-> ![Ortogonal hierárquico](src/diagrams/ortogonal_hierarquico.png)
-
-> Ortogonal por canais (orientação de cima para baixo)
-> 
-> ![Diagrama ortogonal por canais](src/diagrams/ortogonal_canais.png)
-
-> Radial circular (orientação de cima para baixo)
-> 
-> ![](src/diagrams/radial_circular.png)
-
-> Radial de ciclo único (orientação de cima para baixo)
-> 
-> ![Radial de ciclo único](src/diagrams/radial_ciclo_unico.png)
-
-> Por redes orgânicas (orientação de baixo para cima)
-> 
-> ![Redes orgânicas](src/diagrams/redes_organicas.png)
-
-> Ortogonal por grupos hierárquicos (orientação da esquerda para a direita)
-> 
-> ![Ortogonal por grupos hierárquicos](src/diagrams/ortogonal_grupos_hierarquicos.png)
