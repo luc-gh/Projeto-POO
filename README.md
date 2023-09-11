@@ -28,6 +28,10 @@ A ideia é facilitar o agendamento de consultas, registrar tratamentos em andame
 
 ### Diagramas de Classes
 
+> Ortogonal compacto
+> 
+> ![Ortogonal compacto](src/diagrams/ortogonal_compacto.png)
+
 > Ortogonal por canais (orientação de cima para baixo)
 > 
 > ![Diagrama ortogonal por canais](src/diagrams/ortogonal_canais.png)
