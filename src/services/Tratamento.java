@@ -7,13 +7,13 @@ import java.util.Scanner;
 
 public class Tratamento {
     private final Medico medicoResponsavel;
-    private final Paciente paciente;
+    private final Pessoa paciente;
     private final Urgencia urgencia;
     private final Area area;
 
     private String relatorio;
 
-    public Tratamento(Medico medicoResponsavel, Paciente paciente, Urgencia urgencia) {
+    public Tratamento(Medico medicoResponsavel, Pessoa paciente, Urgencia urgencia) {
         this.medicoResponsavel = medicoResponsavel;
         this.area = medicoResponsavel.getArea();
         this.paciente = paciente;
@@ -21,7 +21,7 @@ public class Tratamento {
         this.relatorio = "Relatório não fornecido.";
     }
 
-    public Tratamento(Medico medicoResponsavel, Paciente paciente, Urgencia urgencia, String relatorio) {
+    public Tratamento(Medico medicoResponsavel, Pessoa paciente, Urgencia urgencia, String relatorio) {
         this.medicoResponsavel = medicoResponsavel;
         this.paciente = paciente;
         this.urgencia = urgencia;
@@ -33,7 +33,7 @@ public class Tratamento {
         return medicoResponsavel;
     }
 
-    public Paciente getPaciente() {
+    public Pessoa getPaciente() {
         return paciente;
     }
 

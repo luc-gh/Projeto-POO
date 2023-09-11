@@ -3,17 +3,15 @@ package services;
 import resources.*;
 import entities.*;
 
-import java.util.Arrays;
-import java.util.HashSet;
-
 public class Consulta {
-    private final Paciente paciente;
+    private final Pessoa paciente;
     private final Medico medico;
     private final Horario horario;
     private final Area area;
     private final Urgencia urgencia;
     private Status status;
-    public Paciente getPaciente() {
+
+    public Pessoa getPaciente() {
         return paciente;
     }
 
@@ -41,7 +39,7 @@ public class Consulta {
         this.status = status;
     }
 
-    public Consulta(Medico medico, Paciente paciente, Horario horario, Urgencia urgencia){
+    public Consulta(Medico medico, Pessoa paciente, Horario horario, Urgencia urgencia){
         this.paciente = paciente;
         this.medico = medico;
         this.area = medico.getArea();

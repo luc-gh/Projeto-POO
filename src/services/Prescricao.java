@@ -1,14 +1,14 @@
 package services;
 
 import entities.Medico;
-import entities.Paciente;
 import resources.Area;
+import resources.Pessoa;
 
 public class Prescricao {
 
     private Area area;
     private final Medico medico;
-    private final Paciente paciente;
+    private final Pessoa paciente;
     private final String dicas;
 
     public Area getArea() {
@@ -23,7 +23,7 @@ public class Prescricao {
         return medico;
     }
 
-    public Paciente getPaciente() {
+    public Pessoa getPaciente() {
         return paciente;
     }
 
@@ -31,7 +31,7 @@ public class Prescricao {
         return dicas;
     }
 
-    public Prescricao(Medico medico, Paciente paciente, String dicas){
+    public Prescricao(Medico medico, Pessoa paciente, String dicas){
         this.medico = medico;
         this.paciente = paciente;
         this.setArea(medico.getArea());

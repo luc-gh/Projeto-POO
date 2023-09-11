@@ -7,43 +7,10 @@ import resources.*;
 import services.*;
 
 public class Medico extends Pessoa {
-    private String nome;
-    private String numero;
-    private String dataDeNascimento;
     private Area area;
     private ArrayList<Horario> horariosDisponiveis;
     private ArrayList<Horario> horariosMarcados;
     private ArrayList<Consulta> consultasMarcadas;
-
-    @Override
-    public String getNome() {
-        return nome;
-    }
-
-    @Override
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    @Override
-    public String getNumero() {
-        return numero;
-    }
-
-    @Override
-    public void setNumero(String numero) {
-        this.numero = numero;
-    }
-
-    @Override
-    public String getDataDeNascimento() {
-        return dataDeNascimento;
-    }
-
-    @Override
-    public void setDataDeNascimento(String dataDeNascimento) {
-        this.dataDeNascimento = dataDeNascimento;
-    }
 
     public Area getArea() {
         return area;
@@ -85,6 +52,7 @@ public class Medico extends Pessoa {
         this.setConsultasMarcadas(new ArrayList<>());
     }
 
+    /*
     public void mostrarHorariosDisponiveis(){
         if(this.getHorariosDisponiveis().isEmpty()){
             System.out.println("Não há horários disponíveis.");
@@ -92,7 +60,7 @@ public class Medico extends Pessoa {
             System.out.println("Horários disponíveis do Doutor " + this.getNome() + ":");
             for (Horario h:this.getHorariosDisponiveis()) System.out.println("-> " + h.print());
         }
-    }
+    }*/
 
     public void mostrarHorariosMarcados(){
         if(this.getHorariosMarcados().isEmpty()){
@@ -103,7 +71,7 @@ public class Medico extends Pessoa {
         }
     }
 
-    public void marcarConsulta(Paciente paciente, Horario horario, Urgencia urgencia){
+    public void marcarConsulta(Pessoa paciente, Horario horario, Urgencia urgencia){
         Consulta c = new Consulta(this, paciente, horario, urgencia);
         this.getConsultasMarcadas().add(c);
         System.out.println("Consulta com o paciente " + paciente.getNome() + " marcada com o Doutor " +

@@ -131,7 +131,7 @@ public class Testes {
                     String telefone = scanner.nextLine();
                     System.out.println("Digite a data de nascimento do Cliente: ");
                     String dataNascimento = scanner.nextLine();
-                    Paciente paciente = new Paciente(nome, telefone, dataNascimento);
+                    Pessoa paciente = new Pessoa(nome, telefone, dataNascimento);
 
                     System.out.println("Qual a área do atendimento?");
                     String area = scanner.nextLine();
