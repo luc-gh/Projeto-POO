@@ -3,6 +3,8 @@ package entities;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import org.jetbrains.annotations.NotNull;
+
 import resources.*;
 import services.*;
 
@@ -52,7 +54,7 @@ public class Medico extends Pessoa {
         this.setConsultasMarcadas(new ArrayList<>());
     }
 
-    /*
+
     public void mostrarHorariosDisponiveis(){
         if(this.getHorariosDisponiveis().isEmpty()){
             System.out.println("Não há horários disponíveis.");
@@ -60,7 +62,7 @@ public class Medico extends Pessoa {
             System.out.println("Horários disponíveis do Doutor " + this.getNome() + ":");
             for (Horario h:this.getHorariosDisponiveis()) System.out.println("-> " + h.print());
         }
-    }*/
+    }
 
     public void mostrarHorariosMarcados(){
         if(this.getHorariosMarcados().isEmpty()){
@@ -103,7 +105,7 @@ public class Medico extends Pessoa {
         }
     }
 
-    public void cancelarConsulta(Consulta consulta){
+    public void cancelarConsulta(@NotNull Consulta consulta){
         consulta.cancelarConsulta();
     }
 

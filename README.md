@@ -30,3 +30,10 @@ A ideia é facilitar o agendamento de consultas, registrar tratamentos em andame
 ---
 ### Diagramas de Classes
 
+> Ortogonal compacto
+> 
+> ![](src/diagrams/Ortogonal_compacto.png)
+
+> Ortogonal por grupos hierárquicos
+> 
+> ![](src/diagrams/Ortogonal_Grupos_Hierarquicos_EsqpDir.png)
