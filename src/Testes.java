@@ -187,6 +187,7 @@ public class Testes {
                 }
                 default -> {break;}
             }
+            break;
         }
     }
 }

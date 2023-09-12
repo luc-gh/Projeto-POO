@@ -24,7 +24,9 @@ A área do projeto em questão é "Sistemas de Gestão de Serviços" com o tema 
 #### 🎯 Objetivos da Implementação
 A ideia é facilitar o agendamento de consultas, registrar tratamentos em andamento ou concluídos e manter informações sobre médicos e pacientes. Temos três principais entidades no sistema: Médicos, Pacientes e Consultas. Cada médico e paciente é representado por uma classe que herda atributos comuns de uma classe base 'Pessoa'. Os médicos têm especializações e horários disponíveis para consultas. Eles podem ser agendados para consultas com pacientes e registrar tratamentos. Os pacientes têm histórico médico e podem agendar consultas com médicos.
 
-<hr>
 
+####  Classes do projeto
+
+---
 ### Diagramas de Classes
 

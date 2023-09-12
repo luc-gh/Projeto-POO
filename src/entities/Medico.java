@@ -89,8 +89,22 @@ public class Medico extends Pessoa {
         this.consultasMarcadas.remove(consulta);
     }
 
-    public void cancelarConsulta(){
+    public void cancelarConsulta(Medico medico, Pessoa paciente, Horario horario, Urgencia urgencia){
+        Consulta c = new Consulta(medico, paciente, horario, urgencia);
+        for (Consulta m:medico.consultasMarcadas){
+            if (m.getMedico().equals(c.getMedico()) &&
+                m.getArea().equals(c.getArea()) &&
+                m.getHorario().equals(c.getHorario()) &&
+                m.getPaciente().equals(c.getPaciente())
+            ) {
+                m.cancelarConsulta();
+            }
+            else System.out.println("Esta consulta não existe.");
+        }
+    }
 
+    public void cancelarConsulta(Consulta consulta){
+        consulta.cancelarConsulta();
     }
 
 
