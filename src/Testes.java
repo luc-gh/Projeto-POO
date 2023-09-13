@@ -42,8 +42,8 @@ public class Testes {
         for(int i = 1; i <= n; i++){
             System.out.println(i + "º médico\n--------------------");
             System.out.print("Nome: ");
-            sc.next();
             String nome = sc.nextLine();
+            sc.nextLine();
 
             System.out.print("Número: ");
             String numero = sc.nextLine();
@@ -85,12 +85,16 @@ public class Testes {
         for (Medico medico : this.medicosDoSistema) {
             while (true) {
                 try {
+                    System.out.println("Médico: " + medico.getNome());
                     System.out.print("\nDigite o dia: ");
                     int dia = sc.nextInt();
-                    System.out.print("\nDigite o mês: ");
+                    System.out.print("Digite o mês: ");
                     int mes = sc.nextInt();
-                    System.out.print("\nDigite o horário (atente ao formato hh:mm): ");
-                    String hora = sc.nextLine();
+                    System.out.print("Digite o horário (atente ao formato hh:mm): ");
+                    String hora;
+                    hora = sc.nextLine();
+                    sc.nextLine();
+                    System.out.println(hora);
                     Horario h = new Horario(dia, mes, hora);
                     medico.getHorariosDisponiveis().add(h);
                     System.out.println("\n\nHorário adicionado: " + h.print() + " para o médico " + medico.getNome() + ".");

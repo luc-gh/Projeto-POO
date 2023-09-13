@@ -63,22 +63,22 @@ public class Tratamento {
         System.out.print("O paciente mostra sinais reais da doença específica da área? (S/N)" +
                 "\nR: ");
         String resp = scanner.next().toUpperCase();
-        scanner.close();
         System.out.println("-----------------------\nO tratamento indicado é:");
         System.out.println(this.toString());
         switch (resp) {
-            case "S":
+            case "S" -> {
                 Prescricao prescricao1 = new Prescricao(this.getMedicoResponsavel(), this.getPaciente(), this.getRelatorio());
                 prescricao1.listarPrescricoesRecomendadas();
-                break;
-            case "N":
+            }
+            case "N" -> {
                 Prescricao prescricao2 = new Prescricao(this.getMedicoResponsavel(), this.getPaciente(), this.getRelatorio());
                 prescricao2.setArea(Area.Geral);
                 prescricao2.listarPrescricoesRecomendadas();
-                break;
-            default:
+            }
+            default -> {
                 System.out.println("Erro!");
                 throw new RuntimeException("Resposta inválida!");
+            }
         }
     }
 }

@@ -38,7 +38,7 @@ public class Horario {
 
     private boolean formatoAdequadoDeHora(String hora){
         // a regex terminava em \n, o que acabava obrigando ter uma quebra de linha
-        String regex = "^(?:[01]\\d|2[0-3]):[0-5]\\d$";
+        String regex = "^(?:[0-1]?\\d|2[0-3]):[0-5]\\d$";
         return hora.matches(regex);
     }
 
