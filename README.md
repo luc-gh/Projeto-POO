@@ -22,18 +22,12 @@ A área do projeto em questão é "Sistemas de Gestão de Serviços" com o tema 
 * **Redução de erros:** A automação reduz erros humanos, como agendamentos duplicados ou incorretos.
 
 #### 🎯 Objetivos da Implementação
-A ideia é facilitar o agendamento de consultas, registrar tratamentos em andamento ou concluídos e manter informações sobre médicos e pacientes. Temos três principais entidades no sistema: Médicos, Pacientes e Consultas. Cada médico e paciente é representado por uma classe que herda atributos comuns de uma classe base 'Pessoa'. Os médicos têm especializações e horários disponíveis para consultas. Eles podem ser agendados para consultas com pacientes e registrar tratamentos. Os pacientes têm histórico médico e podem agendar consultas com médicos.
+A ideia é facilitar o agendamento de consultas, registrar tratamentos em andamento ou concluídos e manter informações sobre médicos e pacientes. Temos duas principais entidades no sistema: Médicos e Consultas. Cada médico é representado por uma classe que herda atributos comuns de uma classe base 'Pessoa'. Os médicos têm especializações e horários disponíveis para consultas. Eles podem ser agendados para consultas com pacientes e registrar tratamentos. Os pacientes são representados pela classe 'Pessoa' e podem agendar consultas com médicos.
 
 
 ####  Classes do projeto
 
 ---
-### Diagramas de Classes
+### Diagrama de Classes
 
-> Ortogonal compacto
-> 
-> ![](src/diagrams/Ortogonal_compacto.png)
-
-> Ortogonal por grupos hierárquicos
-> 
-> ![](src/diagrams/Ortogonal_Grupos_Hierarquicos_EsqpDir.png)
+![](src/diagrams/diagrama.png)
