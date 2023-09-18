@@ -30,4 +30,4 @@ A ideia é facilitar o agendamento de consultas, registrar tratamentos em andame
 ---
 ### Diagrama de Classes
 
-![](src/diagrams/diagrama.png)
+> ![](src/diagrams/diagrama.png)
