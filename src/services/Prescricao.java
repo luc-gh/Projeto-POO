@@ -4,6 +4,12 @@ import entities.Medico;
 import resources.Area;
 import resources.Pessoa;
 
+/**
+ * A classe Prescricao representa uma prescrição médica no sistema.
+ *
+ * Ela mantém informações sobre a área de atuação do médico, o médico que emitiu a prescrição,
+ * o paciente para o qual a prescrição foi feita e as dicas ou recomendações médicas.
+ */
 public class Prescricao {
 
     private Area area;
@@ -11,26 +17,58 @@ public class Prescricao {
     private final Pessoa paciente;
     private final String dicas;
 
+    /**
+     * Obtém a área de atuação do médico que emitiu a prescrição.
+     *
+     * @return A área de atuação do médico.
+     */
     public Area getArea() {
         return area;
     }
 
+    /**
+     * Define a área de atuação do médico que emitiu a prescrição.
+     *
+     * @param area A área de atuação a ser definida.
+     */
     public void setArea(Area area) {
         this.area = area;
     }
 
+    /**
+     * Obtém o médico que emitiu a prescrição.
+     *
+     * @return O médico que emitiu a prescrição.
+     */
     public Medico getMedico() {
         return medico;
     }
 
+    /**
+     * Obtém o paciente para o qual a prescrição foi feita.
+     *
+     * @return O paciente para o qual a prescrição foi feita.
+     */
     public Pessoa getPaciente() {
         return paciente;
     }
 
+    /**
+     * Obtém as dicas ou recomendações médicas da prescrição.
+     *
+     * @return As dicas ou recomendações médicas.
+     */
     public String getDicas() {
         return dicas;
     }
 
+    /**
+     * Construtor da classe Prescricao.
+     *
+     * @param medico O médico que emitiu a prescrição.
+     * @param paciente O paciente para o qual a prescrição foi feita.
+     * @param dicas As dicas ou recomendações médicas.
+     */
     public Prescricao(Medico medico, Pessoa paciente, String dicas){
         this.medico = medico;
         this.paciente = paciente;
@@ -38,6 +76,12 @@ public class Prescricao {
         this.dicas = dicas;
     }
 
+    /**
+     * Lista as prescrições recomendadas com base na área de atuação do médico.
+     *
+     * Imprime a lista de prescrições recomendadas com base na especialidade do médico.
+     * Se houver dicas adicionais na prescrição, elas também são exibidas.
+     */
     public void listarPrescricoesRecomendadas(){
         switch (this.area) {
             case Geral -> System.out.println("""

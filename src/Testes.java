@@ -5,10 +5,18 @@ import services.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * A classe Testes é responsável por configurar o sistema e fornecer uma interface de linha de comando para
+ * interagir com os médicos e consultas médicas.
+ */
 public class Testes {
 
     ArrayList<Medico> medicosDoSistema = new ArrayList<>();
 
+    /**
+     * Realiza a configuração inicial do sistema, permitindo que o usuário defina informações sobre os médicos e
+     * horários disponíveis.
+     */
     public void configuracaoDeSistema(){
         Scanner sc = new Scanner(System.in);
         System.out.println("""
@@ -110,6 +118,11 @@ public class Testes {
         System.out.println("\n=================================\nFim de configuração do sistema");
     }
 
+    /**
+     * Método principal que inicia a interface de linha de comando para interagir com o sistema.
+     *
+     * @param args Os argumentos de linha de comando (não utilizados neste caso).
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Testes testes = new Testes();
