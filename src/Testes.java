@@ -153,11 +153,11 @@ public class Testes {
             int opcao = Integer.parseInt(scanner.nextLine());
             switch (opcao) {
                 case 1 -> {
-                    System.out.print("\nDigite o nome do Cliente: ");
+                    System.out.println("Digite o nome do Cliente: ");
                     String nome = scanner.nextLine();
-                    System.out.print("\nDigite o número de telefone do Cliente: ");
+                    System.out.println("Digite o número de telefone do Cliente: ");
                     String telefone = scanner.nextLine();
-                    System.out.println("\nDigite a data de nascimento do Cliente: ");
+                    System.out.println("Digite a data de nascimento do Cliente: ");
                     String dataNascimento = scanner.nextLine();
                     Pessoa paciente = new Pessoa(nome, telefone, dataNascimento);
 
@@ -182,6 +182,8 @@ public class Testes {
                             } else {
                                 System.out.println("Horário indisponível.");
                             }
+                        } else {
+                            System.out.println("Não temos médicos desta área");
                         }
                     }
 
@@ -194,13 +196,13 @@ public class Testes {
                             continue;
                         }
                         System.out.println("Digite o dia do horário a cancelar: ");
-                        int dia = scanner.nextInt();
+                        int dia = Integer.parseInt(scanner.nextLine());
                         System.out.println("Digite o mês do horário a cancelar: ");
-                        int mes = scanner.nextInt();
+                        int mes = Integer.parseInt(scanner.nextLine());
                         System.out.println("Digite a hora do horário que será cancelado: ");
-                        int hora = scanner.nextInt();
+                        int hora = Integer.parseInt(scanner.nextLine());
                         System.out.println("Digite os minutos: ");
-                        int min = scanner.nextInt();
+                        int min = Integer.parseInt(scanner.nextLine());
                         for (Horario horario:m.getHorariosMarcados()){
                             if (horario.getHora() == hora && horario.getMinuto() == min && horario.getDia() == dia && horario.getMes() == mes) {
                                 m.cancelarConsulta(m, horario);
@@ -227,7 +229,7 @@ public class Testes {
                         if (medico.getNome().equals(nomeMedico)){
                             if(!medico.getConsultasMarcadas().isEmpty()){
                                 for(Consulta consulta : medico.getConsultasMarcadas()){
-                                    consulta.getHorario().print();
+                                    System.out.println(consulta.getHorario().print());
                                     System.out.println("==============");
                                 }
                             } else {
