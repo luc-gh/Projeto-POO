@@ -180,14 +180,4 @@ public class Medico extends Pessoa {
         }
     }
 
-    /**
-     * Cancela uma consulta.
-     *
-     * @param consulta A consulta a ser cancelada.
-     */
-    public void cancelarConsulta(@NotNull Consulta consulta){
-        consulta.cancelarConsulta();
-    }
-
-
 }

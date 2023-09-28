@@ -71,7 +71,7 @@ public class Testes {
             System.out.print("Área: ");
             int escolha = sc.nextInt();
 
-            Area area = null;
+            Area area;
             switch(escolha){
                 case 1 -> area = Area.Geral;
                 case 2 -> area = Area.Pediatria;
@@ -210,9 +210,7 @@ public class Testes {
                     String nomeMedico = scanner.nextLine();
                     for(Medico medico : testes.medicosDoSistema){
                         if (medico.getNome().equals(nomeMedico)){
-                            for(Horario horario : medico.getHorariosDisponiveis()){
-                                horario.print();
-                            }
+                            medico.mostrarHorariosDisponiveis();
                         } else {
                             System.out.println("Médico não existe no sistema.");
                         }
@@ -232,12 +230,19 @@ public class Testes {
                         }
                     }
                 }
-                default -> {
-                    throw new RuntimeException("Essa opção é inválida. Erro no sistema.");
-                }
+                default -> throw new RuntimeException("Essa opção é inválida. Erro no sistema.");
             }
             break;
         }
+        for(Medico m:testes.medicosDoSistema){
+            for(Consulta c:m.getConsultasMarcadas()){
+                System.out.print("\nConsulta do médico " + m.getNome() +
+                        ", de " + c.getHorario().print() + " em andamento. \nDigite as orientações: ");
+                String orientacoes = scanner.nextLine();
+                c.realizarConsulta(orientacoes);
+            }
+        }
+        System.out.println("\n-------------------------\nSistema encerrado.");
     }
 }
 
