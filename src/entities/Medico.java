@@ -174,7 +174,10 @@ public class Medico extends Pessoa {
      */
     public void cancelarConsulta(Medico medico, Horario horario){
         for (Consulta m:medico.consultasMarcadas){
-            if (m.getMedico().equals(medico) && m.getHorario().equals(horario)) m.cancelarConsulta();
+            if (m.getMedico().equals(medico) && m.getHorario().equals(horario)) {
+                m.cancelarConsulta();
+                this.getHorariosMarcados().remove(horario);
+            }
             else System.out.println("Esta consulta não existe.");
         }
     }
