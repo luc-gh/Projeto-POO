@@ -105,16 +105,6 @@ public class Tratamento {
     }
 
     /**
-     * Sobrescreve o método toString para exibir informações sobre o tratamento.
-     *
-     * @return Uma representação em formato de string do tratamento.
-     */
-    @Override
-    public String toString(){
-        return "Médico responsável: " + getMedicoResponsavel().getNome() + "\n" + "Cliente: " + getPaciente().getNome();
-    }
-
-    /**
      * Inicia o tratamento, avaliando a necessidade de prescrição médica com base na área de atuação do médico.
      */
     public void tratamento(){
@@ -122,15 +112,15 @@ public class Tratamento {
         System.out.print("O paciente mostra sinais reais da doença específica da área? (S/N)" +
                 "\nR: ");
         String resp = scanner.next().toUpperCase();
-        System.out.println("-----------------------\nO tratamento indicado é:");
-        System.out.println(this.toString());
+        System.out.println("-----------------------\nO tratamento indicado pelo médico " +
+                this.getMedicoResponsavel() + " para o paciente " + this.getPaciente() + " é:");
         switch (resp) {
             case "S" -> {
-                Prescricao prescricao1 = new Prescricao(this.getMedicoResponsavel(), this.getPaciente(), this.getRelatorio());
+                Prescricao prescricao1 = new Prescricao(this.getMedicoResponsavel(), this.getRelatorio());
                 prescricao1.listarPrescricoesRecomendadas();
             }
             case "N" -> {
-                Prescricao prescricao2 = new Prescricao(this.getMedicoResponsavel(), this.getPaciente(), this.getRelatorio());
+                Prescricao prescricao2 = new Prescricao(this.getMedicoResponsavel(), this.getRelatorio());
                 prescricao2.setArea(Area.Geral);
                 prescricao2.listarPrescricoesRecomendadas();
             }

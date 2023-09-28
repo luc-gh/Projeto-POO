@@ -13,8 +13,6 @@ import resources.Pessoa;
 public class Prescricao {
 
     private Area area;
-    private final Medico medico;
-    private final Pessoa paciente;
     private final String dicas;
 
     /**
@@ -36,24 +34,6 @@ public class Prescricao {
     }
 
     /**
-     * Obtém o médico que emitiu a prescrição.
-     *
-     * @return O médico que emitiu a prescrição.
-     */
-    public Medico getMedico() {
-        return medico;
-    }
-
-    /**
-     * Obtém o paciente para o qual a prescrição foi feita.
-     *
-     * @return O paciente para o qual a prescrição foi feita.
-     */
-    public Pessoa getPaciente() {
-        return paciente;
-    }
-
-    /**
      * Obtém as dicas ou recomendações médicas da prescrição.
      *
      * @return As dicas ou recomendações médicas.
@@ -66,12 +46,9 @@ public class Prescricao {
      * Construtor da classe Prescricao.
      *
      * @param medico O médico que emitiu a prescrição.
-     * @param paciente O paciente para o qual a prescrição foi feita.
      * @param dicas As dicas ou recomendações médicas.
      */
-    public Prescricao(Medico medico, Pessoa paciente, String dicas){
-        this.medico = medico;
-        this.paciente = paciente;
+    public Prescricao(Medico medico, String dicas){
         this.setArea(medico.getArea());
         this.dicas = dicas;
     }
