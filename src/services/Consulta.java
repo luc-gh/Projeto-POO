@@ -100,7 +100,7 @@ public class Consulta {
     /**
      * Cancela a consulta, atualizando o status e removendo-a da lista de consultas marcadas do médico.
      */
-    public synchronized void cancelarConsulta(){
+    public void cancelarConsulta(){
         this.setStatus(Status.Cancelada);
         this.getMedico().getConsultasMarcadas().remove(this);
         System.out.println("Esta consulta foi cancelada.");

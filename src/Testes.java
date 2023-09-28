@@ -207,7 +207,7 @@ public class Testes {
                         for (Horario horario:m.getHorariosMarcados()){
                             if (horario.getHora() == hora && horario.getMinuto() == min && horario.getDia() == dia && horario.getMes() == mes) {
                                 horarioToRemove = horario;
-                                m.cancelarConsulta(m, horario);
+                                m.cancelarConsulta(horario);
                                 System.out.println("Consulta do médico " + m.getNome() + ", do horário: " + horario.print() + " cancelada.");
                             }
                         }

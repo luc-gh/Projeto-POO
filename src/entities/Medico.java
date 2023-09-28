@@ -168,12 +168,18 @@ public class Medico extends Pessoa {
     /**
      * Cancela uma consulta.
      *
-     * @param medico   O médico que deseja cancelar a consulta.
      * @param horario  O horário da consulta.
      */
-    public void cancelarConsulta(Medico medico, Horario horario){
-        for (Consulta m:medico.consultasMarcadas){
-            if (m.getMedico().equals(medico) && m.getHorario().equals(horario)) m.cancelarConsulta();
+    public void cancelarConsulta(Horario horario){
+        for (Consulta m:this.consultasMarcadas){
+            if (m.getHorario().getMes() == horario.getMes() &&
+                m.getHorario().getDia() == horario.getDia() &&
+                m.getHorario().getHora() == horario.getHora() &&
+                m.getHorario().getMinuto() == horario.getMinuto()
+            ) {
+                this.consultasMarcadas.remove(m);
+                System.out.println("Consulta de " + horario.print() + ", do médico " + m.getMedico() + " cancelada.");
+            }
             else System.out.println("Esta consulta não existe.");
         }
     }

@@ -2,7 +2,7 @@ package resources;
 
 /**
  * A enumeração Area representa diferentes áreas médicas.
- *
+ * <p>
  * Cada valor desta enumeração corresponde a uma área médica específica, como Pediatria, Cardiologia, etc.
  */
 public enum Area {
