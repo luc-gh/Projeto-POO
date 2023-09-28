@@ -13,39 +13,18 @@ import java.util.Scanner;
  */
 public class Tratamento {
     private final Medico medicoResponsavel;
-    private final Pessoa paciente;
-    private final Urgencia urgencia;
     private final Area area;
 
     private String relatorio;
 
     /**
-     * Construtor da classe Tratamento.
-     *
-     * @param medicoResponsavel O médico responsável pelo tratamento.
-     * @param paciente O paciente que está sendo tratado.
-     * @param urgencia O nível de urgência do tratamento.
-     */
-    public Tratamento(Medico medicoResponsavel, Pessoa paciente, Urgencia urgencia) {
-        this.medicoResponsavel = medicoResponsavel;
-        this.area = medicoResponsavel.getArea();
-        this.paciente = paciente;
-        this.urgencia = urgencia;
-        this.relatorio = "Relatório não fornecido.";
-    }
-
-    /**
      * Construtor da classe Tratamento com relatório.
      *
      * @param medicoResponsavel O médico responsável pelo tratamento.
-     * @param paciente O paciente que está sendo tratado.
-     * @param urgencia O nível de urgência do tratamento.
      * @param relatorio O relatório opcional sobre o tratamento.
      */
-    public Tratamento(Medico medicoResponsavel, Pessoa paciente, Urgencia urgencia, String relatorio) {
+    public Tratamento(Medico medicoResponsavel, String relatorio) {
         this.medicoResponsavel = medicoResponsavel;
-        this.paciente = paciente;
-        this.urgencia = urgencia;
         this.relatorio = relatorio;
         area = medicoResponsavel.getArea();
     }
@@ -57,15 +36,6 @@ public class Tratamento {
      */
     public Medico getMedicoResponsavel() {
         return medicoResponsavel;
-    }
-
-    /**
-     * Obtém o paciente que está sendo tratado.
-     *
-     * @return O paciente que está sendo tratado.
-     */
-    public Pessoa getPaciente() {
-        return paciente;
     }
 
     /**
@@ -87,15 +57,6 @@ public class Tratamento {
     }
 
     /**
-     * Obtém a urgência do tratamento.
-     *
-     * @return A urgência do tratamento.
-     */
-    public Urgencia getUrgencia() {
-        return urgencia;
-    }
-
-    /**
      * Obtém a área de atuação do médico responsável pelo tratamento.
      *
      * @return A área de atuação do médico responsável pelo tratamento.
@@ -113,7 +74,7 @@ public class Tratamento {
                 "\nR: ");
         String resp = scanner.next().toUpperCase();
         System.out.println("-----------------------\nO tratamento indicado pelo médico " +
-                this.getMedicoResponsavel() + " para o paciente " + this.getPaciente() + " é:");
+                this.getMedicoResponsavel() + " para o paciente é:");
         switch (resp) {
             case "S" -> {
                 Prescricao prescricao1 = new Prescricao(this.getMedicoResponsavel(), this.getRelatorio());

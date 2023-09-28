@@ -3,6 +3,7 @@ import entities.*;
 import services.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -140,8 +141,7 @@ public class Testes {
 
         while(isRunning){
             System.out.println("Bem-vindo ao Agendamento de Consultas");
-            System.out.println("=====================================");
-            System.out.println("Selecione uma opção:\n");
+            System.out.println("=====================================\nOPÇÕES");
             System.out.println("""
                     1 - Marcar Consulta
                     2 - Cancelar Consulta
@@ -149,18 +149,20 @@ public class Testes {
                     4 - Verificar Consultas Marcadas
                     5 - Sair do sistema
             """);
+            System.out.print("Selecione uma opção:");
             int opcao = Integer.parseInt(scanner.nextLine());
             switch (opcao) {
                 case 1 -> {
-                    System.out.println("Digite o nome do Cliente: ");
+                    System.out.print("\nDigite o nome do Cliente: ");
                     String nome = scanner.nextLine();
-                    System.out.println("Digite o número de telefone do Cliente: ");
+                    System.out.print("\nDigite o número de telefone do Cliente: ");
                     String telefone = scanner.nextLine();
-                    System.out.println("Digite a data de nascimento do Cliente: ");
+                    System.out.println("\nDigite a data de nascimento do Cliente: ");
                     String dataNascimento = scanner.nextLine();
                     Pessoa paciente = new Pessoa(nome, telefone, dataNascimento);
 
-                    System.out.println("Qual a área do atendimento?");
+                    System.out.println("Áreas: \n" + Arrays.toString(Area.values()));
+                    System.out.println("Escreva a área do atendimento:");
                     String area = scanner.nextLine();
                     for(Medico medico : testes.medicosDoSistema){
                         if (medico.getArea() == Area.valueOf(area)){

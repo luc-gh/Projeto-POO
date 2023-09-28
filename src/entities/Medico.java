@@ -153,12 +153,10 @@ public class Medico extends Pessoa {
 
     /**
      * Designa um tratamento para uma consulta.
-     *
-     * @param consulta     A consulta para a qual o tratamento será designado.
      * @param orientacoes  As orientações para o tratamento.
      */
-    public void designarTratamento(Consulta consulta, String orientacoes){
-        Tratamento tratamento = new Tratamento(this, consulta.getPaciente(), consulta.getUrgencia());
+    public void designarTratamento(String orientacoes, Consulta consulta){
+        Tratamento tratamento = new Tratamento(this, "");
         Scanner sc = new Scanner(System.in);
         System.out.print("Relatório: ");
         String s = sc.nextLine();

@@ -114,6 +114,7 @@ public class Consulta {
     public synchronized void realizarConsulta(String orientacoes){
         this.setStatus(Status.Realizada);
         System.out.println("Consulta realizada. \nOrientações: " + orientacoes + "\n");
+        this.getMedico().designarTratamento(orientacoes, this);
     }
 
 
