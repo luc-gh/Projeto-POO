@@ -203,15 +203,11 @@ public class Testes {
                         int hora = Integer.parseInt(scanner.nextLine());
                         System.out.println("Digite os minutos: ");
                         int min = Integer.parseInt(scanner.nextLine());
-                        Horario horarioToRemove = null;
                         for (Horario horario:m.getHorariosMarcados()){
                             if (horario.getHora() == hora && horario.getMinuto() == min && horario.getDia() == dia && horario.getMes() == mes) {
-                                horarioToRemove = horario;
                                 m.cancelarConsulta(horario);
-                                System.out.println("Consulta do médico " + m.getNome() + ", do horário: " + horario.print() + " cancelada.");
                             }
                         }
-                        m.getHorariosMarcados().remove(horarioToRemove);
                     }
                 }
                 case 3 -> {

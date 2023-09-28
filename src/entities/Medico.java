@@ -179,6 +179,7 @@ public class Medico extends Pessoa {
             ) {
                 this.consultasMarcadas.remove(m);
                 System.out.println("Consulta de " + horario.print() + ", do médico " + m.getMedico() + " cancelada.");
+                this.consultasMarcadas.remove(m);
             }
             else System.out.println("Esta consulta não existe.");
         }
