@@ -136,8 +136,9 @@ public class Testes {
         Testes testes = new Testes();
 
         testes.configuracaoDeSistema();
+        boolean isRunning = true;
 
-        while(true){
+        while(isRunning){
             System.out.println("Bem-vindo ao Agendamento de Consultas");
             System.out.println("=====================================");
             System.out.println("Selecione uma opção:\n");
@@ -146,6 +147,7 @@ public class Testes {
                     2 - Cancelar Consulta
                     3 - Verificar Horários Disponíveis
                     4 - Verificar Consultas Marcadas
+                    5 - Sair do sistema
             """);
             int opcao = Integer.parseInt(scanner.nextLine());
             switch (opcao) {
@@ -211,7 +213,7 @@ public class Testes {
                     for(Medico medico : testes.medicosDoSistema){
                         if (medico.getNome().equals(nomeMedico)){
                             for(Horario horario : medico.getHorariosDisponiveis()){
-                                horario.print();
+                                System.out.println(horario.print());
                             }
                         } else {
                             System.out.println("Médico não existe no sistema.");
@@ -223,20 +225,24 @@ public class Testes {
                     String nomeMedico = scanner.nextLine();
                     for(Medico medico : testes.medicosDoSistema){
                         if (medico.getNome().equals(nomeMedico)){
-                            for(Consulta consulta : medico.getConsultasMarcadas()){
-                                consulta.getHorario().print();
-                                System.out.println("==============");
+                            if(!medico.getConsultasMarcadas().isEmpty()){
+                                for(Consulta consulta : medico.getConsultasMarcadas()){
+                                    consulta.getHorario().print();
+                                    System.out.println("==============");
+                                }
+                            } else {
+                                System.out.println("Este médico não tem consultas marcadas");
                             }
                         } else {
                             System.out.println("Médico não existe no sistema.");
                         }
                     }
                 }
-                default -> {
-                    throw new RuntimeException("Essa opção é inválida. Erro no sistema.");
+                case 5 -> {
+                    isRunning = false;
                 }
+                default -> throw new RuntimeException("Essa opção é inválida. Erro no sistema.");
             }
-            break;
         }
     }
 }
