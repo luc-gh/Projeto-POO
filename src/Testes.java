@@ -89,23 +89,22 @@ public class Testes {
             System.out.println();
         }
 
-        System.out.println("Agora, defina os horários disponíveis para cada médico:");
+        System.out.println("Agora, defina os horários disponíveis para cada médico:\n---------------------------");
         for (Medico medico : this.medicosDoSistema) {
             while (true) {
                 try {
                     System.out.println("Médico: " + medico.getNome());
-                    System.out.print("\nDigite o dia: ");
+                    System.out.print("Digite o dia: ");
                     int dia = sc.nextInt();
                     System.out.print("Digite o mês: ");
                     int mes = sc.nextInt();
-                    System.out.print("Digite o horário (atente ao formato hh:mm): ");
-                    String hora;
-                    hora = sc.nextLine();
-                    sc.nextLine();
-                    System.out.println(hora);
-                    Horario h = new Horario(dia, mes, hora);
+                    System.out.print("Digite a hora: ");
+                    int hora = sc.nextInt();
+                    System.out.print("\nE os minutos: ");
+                    int min = sc.nextInt();
+                    Horario h = new Horario(dia, mes, hora, min);
                     medico.getHorariosDisponiveis().add(h);
-                    System.out.println("\n\nHorário adicionado: " + h.print() + " para o médico " + medico.getNome() + ".");
+                    System.out.println("\nHorário adicionado: " + h.print() + " para o médico " + medico.getNome() + ".");
                 } catch (Exception e) {
                     throw new RuntimeException("Erro: " + e);
                 }
@@ -154,13 +153,15 @@ public class Testes {
                     String area = scanner.nextLine();
                     for(Medico medico : testes.medicosDoSistema){
                         if (medico.getArea() == Area.valueOf(area)){
-                            System.out.println("Digite o dia da consulta: ");
+                            System.out.print("\nDigite o dia da consulta: ");
                             short dia = Short.parseShort(scanner.nextLine());
-                            System.out.println("Digite o mês da consulta: ");
+                            System.out.print("\nDigite o mês da consulta: ");
                             short mes = Short.parseShort(scanner.nextLine());
-                            System.out.println("Digite a hora da consulta: ");
-                            String hora = scanner.nextLine();
-                            Horario horario = new Horario(dia, mes, hora);
+                            System.out.print("\nDigite a hora da consulta: ");
+                            int hora = scanner.nextInt();
+                            System.out.print("\nE os minutos: ");
+                            int min = scanner.nextInt();
+                            Horario horario = new Horario(dia, mes, hora, min);
                             if (!medico.getHorariosDisponiveis().contains(horario)) {
                                 System.out.println("Qual a urgência da consulta: ");
                                 String urgencia = scanner.nextLine();
@@ -173,7 +174,27 @@ public class Testes {
 
                 }
                 case 2 -> {
-                    for (Medico m:testes.medicosDoSistema) m.mostrarHorariosMarcados();
+                    for (Medico m:testes.medicosDoSistema) {
+                        m.mostrarHorariosMarcados();
+                        if (m.getHorariosMarcados().isEmpty()) {
+                            System.out.println("Este médico não tem horários marcados, logo, não há consulta a ser cancelada.");
+                            continue;
+                        }
+                        System.out.println("Digite o dia do horário a cancelar: ");
+                        int dia = scanner.nextInt();
+                        System.out.println("Digite o mês do horário a cancelar: ");
+                        int mes = scanner.nextInt();
+                        System.out.print("Digite a hora do horário que será cancelado: ");
+                        int hora = scanner.nextInt();
+                        System.out.println("\nDigite os minutos: ");
+                        int min = scanner.nextInt();
+                        for (Horario horario:m.getHorariosMarcados()){
+                            if (horario.getHora() == hora && horario.getMinuto() == min && horario.getDia() == dia && horario.getMes() == mes) {
+                                m.cancelarConsulta(m, horario);
+                                System.out.println("Consulta do médico " + m.getNome() + ", do horário: " + horario.print() + " cancelada.");
+                            }
+                        }
+                    }
                 }
                 case 3 -> {
                     System.out.println("Digite o nome do médico:\n");

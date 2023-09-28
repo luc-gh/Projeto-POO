@@ -6,7 +6,8 @@ package resources;
 public class Horario {
     private int dia;
     private int mes;
-    private String hora;
+    private int hora;
+    private int minuto;
 
     /**
      * Obtém o dia do horário.
@@ -49,17 +50,36 @@ public class Horario {
      *
      * @return A hora do horário.
      */
-    public String getHora() {
+    public int getHora() {
         return hora;
     }
 
     /**
      * Define a hora do horário.
      *
-     * @param hora A hora a ser definida (no formato "HH:mm").
+     * @param hora A hora a ser definida.
      */
-    public void setHora(String hora) {
+    public void setHora(int hora) {
         this.hora = hora;
+    }
+
+
+    /**
+     * Obtém os minutos od horário.
+     *
+     * @return Os minutos do horário.
+     */
+    public int getMinuto() {
+        return minuto;
+    }
+
+    /**
+     * Define os minutos do horário.
+     *
+     * @param minuto Os minutos do horário.
+     */
+    public void setMinuto(int minuto) {
+        this.minuto = minuto;
     }
 
     /**
@@ -67,26 +87,18 @@ public class Horario {
      *
      * @param dia O dia do horário.
      * @param mes O mês do horário.
-     * @param hora A hora do horário (no formato "HH:mm").
+     * @param hora A hora do horário.
+     * @param minutos Os minutos do horário.
      * @throws RuntimeException Se o formato da hora não for adequado.
      */
-    public Horario(int dia, int mes, String hora){
+    public Horario(int dia, int mes, int hora, int minutos){
         this.setDia(dia);
         this.setMes(mes);
-        if (this.formatoAdequadoDeHora(hora)) this.setHora(hora);
-        else throw new RuntimeException("Formato de hora inadequado!");
-    }
-
-    /**
-     * Verifica se o formato da hora é adequado (no formato "HH:mm").
-     *
-     * @param hora A hora a ser verificada.
-     * @return true se o formato da hora for adequado, caso contrário, false.
-     */
-    private boolean formatoAdequadoDeHora(String hora){
-        // a regex terminava em \n, o que acabava obrigando ter uma quebra de linha
-        String regex = "^(?:[0-1]?\\d|2[0-3]):[0-5]\\d$";
-        return hora.matches(regex);
+        if (hora >= 24 || minutos > 59 || hora < 0 || minutos < 0) throw new RuntimeException("A hora ou os minutos definidos não são adequados.");
+        else {
+            this.setHora(hora);
+            this.setMinuto(minutos);
+        }
     }
 
     /**
@@ -95,6 +107,6 @@ public class Horario {
      * @return Uma string que representa o horário no formato "dia/mês, hora".
      */
     public String print(){
-        return this.dia + "/" + this.mes + ", " + this.getHora() + "h.";
+        return this.dia + "/" + this.mes + ", " + this.getHora() + ":" + this.getMinuto();
     }
 }

@@ -143,8 +143,11 @@ public class Medico extends Pessoa {
     public void marcarConsulta(Pessoa paciente, Horario horario, Urgencia urgencia){
         Consulta c = new Consulta(this, paciente, horario, urgencia);
         this.getConsultasMarcadas().add(c);
-        System.out.println("Consulta com o paciente " + paciente.getNome() + " marcada com o Doutor " +
-                this.getNome() + " para o dia " + horario.getDia() + "/" + horario.getMes() + ", " + horario.getHora() + ".");
+        System.out.println("Consulta com o paciente " + paciente.getNome()
+                + " marcada com o Doutor " + this.getNome() +
+                " para o dia " + horario.getDia() + "/" +
+                horario.getMes() + ", " + horario.getHora() +
+                ":" + horario.getMinuto() + ".");
     }
 
     /**
@@ -172,16 +175,9 @@ public class Medico extends Pessoa {
      * @param horario  O horário da consulta.
      * @param urgencia O nível de urgência da consulta.
      */
-    public void cancelarConsulta(Medico medico, Pessoa paciente, Horario horario, Urgencia urgencia){
-        Consulta c = new Consulta(medico, paciente, horario, urgencia);
+    public void cancelarConsulta(Medico medico, Horario horario){
         for (Consulta m:medico.consultasMarcadas){
-            if (m.getMedico().equals(c.getMedico()) &&
-                m.getArea().equals(c.getArea()) &&
-                m.getHorario().equals(c.getHorario()) &&
-                m.getPaciente().equals(c.getPaciente())
-            ) {
-                m.cancelarConsulta();
-            }
+            if (m.getMedico().equals(medico) && m.getHorario().equals(horario)) m.cancelarConsulta();
             else System.out.println("Esta consulta não existe.");
         }
     }
