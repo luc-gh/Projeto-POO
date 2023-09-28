@@ -25,24 +25,25 @@ A área do projeto em questão é "Sistemas de Gestão de Serviços" com o tema 
 A ideia é facilitar o agendamento de consultas, registrar tratamentos em andamento ou concluídos e manter informações sobre médicos e pacientes. Temos duas principais entidades no sistema: Médicos e Consultas. Cada médico é representado por uma classe que herda atributos comuns de uma classe base 'Pessoa'. Os médicos têm especializações e horários disponíveis para consultas. Eles podem ser agendados para consultas com pacientes e registrar tratamentos. Os pacientes são representados pela classe 'Pessoa' e podem agendar consultas com médicos.
 
 
-> ####  Classes do projeto
->
-> > **Entidades**
-> > * [```Medico```](src/entities/Medico.java)
-> 
-> > **Recursos**
-> > * [```Area```](src/resources/Area.java)
-> > * [```Horario```](src/resources/Horario.java)
-> > * [```Pessoa```](src/resources/Pessoa.java)
-> > * [```Status```](src/resources/Status.java)
-> > * [```Urgencia```](src/resources/Urgencia.java)
-> 
-> > **Serviços**
-> > * [```Consulta```](src/services/Consulta.java)
-> > * [```Tratamento```](src/services/Tratamento.java)
-> > * [```Prescricao```](src/services/Prescricao.java)
->
-> *  [```Testes```](src/Testes.java)
+#### 📄 Classes do projeto
+>  **Execução** 
+> * [```Testes```](src/Testes.java)
+
+ > **Entidades**
+ > * [```Medico```](src/entities/Medico.java)
+ 
+ > **Recursos**
+ > * [```Area```](src/resources/Area.java)
+ > * [```Horario```](src/resources/Horario.java)
+ > * [```Pessoa```](src/resources/Pessoa.java)
+ > * [```Status```](src/resources/Status.java)
+ > * [```Urgencia```](src/resources/Urgencia.java)
+ 
+ > **Serviços**
+ > * [```Consulta```](src/services/Consulta.java)
+ > * [```Tratamento```](src/services/Tratamento.java)
+ > * [```Prescricao```](src/services/Prescricao.java)
+
 ---
 ### Diagrama de Classes
 
