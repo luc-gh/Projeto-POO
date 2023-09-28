@@ -223,7 +223,9 @@ public class Testes {
                         }
                     }
                 }
-                default -> {break;}
+                default -> {
+                    throw new RuntimeException("Essa opção é inválida. Erro no sistema.")
+                }
             }
             break;
         }
