@@ -164,6 +164,7 @@ public class Testes {
                     System.out.println("Áreas: \n" + Arrays.toString(Area.values()));
                     System.out.println("Escreva a área do atendimento:");
                     String area = scanner.nextLine();
+                    System.out.println("Área escolhida: " + area);
                     for(Medico medico : testes.medicosDoSistema){
                         if (medico.getArea() == Area.valueOf(area)){
                             System.out.println("Digite o dia da consulta: ");

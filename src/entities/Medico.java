@@ -149,6 +149,8 @@ public class Medico extends Pessoa {
                 " para o dia " + horario.getDia() + "/" +
                 horario.getMes() + ", " + horario.getHora() +
                 ":" + horario.getMinuto() + ".");
+        System.out.println("Consultas deste médico: " + this.getConsultasMarcadas().toString());
+        System.out.println(this.getConsultasMarcadas().contains(c));
     }
 
     /**
@@ -171,6 +173,10 @@ public class Medico extends Pessoa {
      * @param horario  O horário da consulta.
      */
     public void cancelarConsulta(Horario horario){
+        System.out.println("As consultas atuais são:");
+        for(Consulta c:this.getConsultasMarcadas()){
+            System.out.println("Consulta: " + c + "\nHorário:" + c.getHorario().print() + "\nUrgencia: " + c.getUrgencia());
+        }
         for (Consulta m:this.consultasMarcadas){
             if (m.getHorario().getMes() == horario.getMes() &&
                 m.getHorario().getDia() == horario.getDia() &&
