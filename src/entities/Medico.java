@@ -161,7 +161,6 @@ public class Medico extends Pessoa {
         System.out.print("Relatório: ");
         String s = sc.nextLine();
         if (s.length() > 5) tratamento.setRelatorio(s);
-        consulta.realizarConsulta(orientacoes);
         tratamento.tratamento();
         this.consultasMarcadas.remove(consulta);
     }
@@ -174,10 +173,7 @@ public class Medico extends Pessoa {
      */
     public void cancelarConsulta(Medico medico, Horario horario){
         for (Consulta m:medico.consultasMarcadas){
-            if (m.getMedico().equals(medico) && m.getHorario().equals(horario)) {
-                m.cancelarConsulta();
-                this.getHorariosMarcados().remove(horario);
-            }
+            if (m.getMedico().equals(medico) && m.getHorario().equals(horario)) m.cancelarConsulta();
             else System.out.println("Esta consulta não existe.");
         }
     }
