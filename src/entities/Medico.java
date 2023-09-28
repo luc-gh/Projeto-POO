@@ -171,9 +171,7 @@ public class Medico extends Pessoa {
      * Cancela uma consulta.
      *
      * @param medico   O médico que deseja cancelar a consulta.
-     * @param paciente O paciente da consulta.
      * @param horario  O horário da consulta.
-     * @param urgencia O nível de urgência da consulta.
      */
     public void cancelarConsulta(Medico medico, Horario horario){
         for (Consulta m:medico.consultasMarcadas){

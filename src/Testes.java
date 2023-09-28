@@ -13,6 +13,15 @@ public class Testes {
 
     ArrayList<Medico> medicosDoSistema = new ArrayList<>();
 
+    public void listarMedicosDoSistema(){
+        if (this.medicosDoSistema.isEmpty()) System.out.println("Não há médicos no sistema.");
+        else {
+            System.out.println("-----------------------------\nMédicos do sistema:");
+            for(Medico m: medicosDoSistema){
+                System.out.println("- " + m.getNome());
+            }
+        }
+    }
     /**
      * Realiza a configuração inicial do sistema, permitindo que o usuário defina informações sobre os médicos e
      * horários disponíveis.
@@ -48,9 +57,9 @@ public class Testes {
                      (8) Neurologia     (16) Infectologia
                 """);
         for(int i = 1; i <= n; i++){
-            System.out.println(i + "º médico\n--------------------");
+            System.out.println("\n" + i + "º médico\n-----------------------------");
             System.out.print("Nome: ");
-            String nome = sc.nextLine();
+            String nome = sc.next();
             sc.nextLine();
 
             System.out.print("Número: ");
@@ -86,7 +95,7 @@ public class Testes {
                 }
             }
             this.medicosDoSistema.add(new Medico(nome, numero, data, area));
-            System.out.println();
+            this.listarMedicosDoSistema();
         }
 
         System.out.println("Agora, defina os horários disponíveis para cada médico:\n---------------------------");
@@ -100,7 +109,7 @@ public class Testes {
                     int mes = sc.nextInt();
                     System.out.print("Digite a hora: ");
                     int hora = sc.nextInt();
-                    System.out.print("\nE os minutos: ");
+                    System.out.print("E os minutos: ");
                     int min = sc.nextInt();
                     Horario h = new Horario(dia, mes, hora, min);
                     medico.getHorariosDisponiveis().add(h);
@@ -108,7 +117,7 @@ public class Testes {
                 } catch (Exception e) {
                     throw new RuntimeException("Erro: " + e);
                 }
-                System.out.println("\nAdicionar mais um horário (S/N)? R: ");
+                System.out.print("\nAdicionar mais um horário (S/N)? R: ");
                 String c = sc.next();
                 if (c.equals("S")) continue;
                 else break;
@@ -224,7 +233,7 @@ public class Testes {
                     }
                 }
                 default -> {
-                    throw new RuntimeException("Essa opção é inválida. Erro no sistema.")
+                    throw new RuntimeException("Essa opção é inválida. Erro no sistema.");
                 }
             }
             break;
