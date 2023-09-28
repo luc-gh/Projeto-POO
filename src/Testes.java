@@ -164,14 +164,14 @@ public class Testes {
                     String area = scanner.nextLine();
                     for(Medico medico : testes.medicosDoSistema){
                         if (medico.getArea() == Area.valueOf(area)){
-                            System.out.print("\nDigite o dia da consulta: ");
+                            System.out.println("Digite o dia da consulta: ");
                             short dia = Short.parseShort(scanner.nextLine());
-                            System.out.print("\nDigite o mês da consulta: ");
+                            System.out.println("Digite o mês da consulta: ");
                             short mes = Short.parseShort(scanner.nextLine());
-                            System.out.print("\nDigite a hora da consulta: ");
-                            int hora = scanner.nextInt();
-                            System.out.print("\nE os minutos: ");
-                            int min = scanner.nextInt();
+                            System.out.println("Digite a hora da consulta: ");
+                            int hora = Integer.parseInt(scanner.nextLine());
+                            System.out.println("E os minutos: ");
+                            int min = Integer.parseInt(scanner.nextLine());
                             Horario horario = new Horario(dia, mes, hora, min);
                             if (!medico.getHorariosDisponiveis().contains(horario)) {
                                 System.out.println("Qual a urgência da consulta: ");
@@ -195,9 +195,9 @@ public class Testes {
                         int dia = scanner.nextInt();
                         System.out.println("Digite o mês do horário a cancelar: ");
                         int mes = scanner.nextInt();
-                        System.out.print("Digite a hora do horário que será cancelado: ");
+                        System.out.println("Digite a hora do horário que será cancelado: ");
                         int hora = scanner.nextInt();
-                        System.out.println("\nDigite os minutos: ");
+                        System.out.println("Digite os minutos: ");
                         int min = scanner.nextInt();
                         for (Horario horario:m.getHorariosMarcados()){
                             if (horario.getHora() == hora && horario.getMinuto() == min && horario.getDia() == dia && horario.getMes() == mes) {
@@ -213,9 +213,6 @@ public class Testes {
                     for(Medico medico : testes.medicosDoSistema){
                         if (medico.getNome().equals(nomeMedico)){
                             medico.mostrarHorariosDisponiveis();
-                            for(Horario horario : medico.getHorariosDisponiveis()){
-                                System.out.println(horario.print());
-                            }
                         } else {
                             System.out.println("Médico não existe no sistema.");
                         }
