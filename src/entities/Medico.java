@@ -176,8 +176,9 @@ public class Medico extends Pessoa {
                 m.getHorario().getHora() == horario.getHora() &&
                 m.getHorario().getMinuto() == horario.getMinuto()
             ) {
-                this.consultasMarcadas.remove(m);
                 System.out.println("Consulta de " + horario.print() + ", do médico " + m.getMedico() + " cancelada.");
+                this.consultasMarcadas.remove(m);
+                break;
             }
             else System.out.println("Esta consulta não existe.");
         }
