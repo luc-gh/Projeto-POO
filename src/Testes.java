@@ -177,6 +177,7 @@ public class Testes {
                             int min = Integer.parseInt(scanner.nextLine());
                             Horario horario = new Horario(dia, mes, hora, min);
                             if (!medico.getHorariosDisponiveis().contains(horario)) {
+                                System.out.println("Urgencias: \n" + Arrays.toString(Urgencia.values()));
                                 System.out.println("Qual a urgência da consulta: ");
                                 String urgencia = scanner.nextLine();
                                 medico.marcarConsulta(paciente, horario, Urgencia.valueOf(urgencia));
