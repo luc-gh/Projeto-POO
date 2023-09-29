@@ -14,6 +14,11 @@ public class Testes {
 
     ArrayList<Medico> medicosDoSistema = new ArrayList<>();
 
+    /**
+     * Esta função lista os médicos registrados no sistema.
+     *
+     * Se não houver médicos no sistema, exibirá uma mensagem informando que não há médicos.
+     */
     public void listarMedicosDoSistema(){
         if (this.medicosDoSistema.isEmpty()) System.out.println("Não há médicos no sistema.");
         else {
