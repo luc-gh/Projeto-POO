@@ -169,7 +169,7 @@ public class Medico extends Pessoa {
     public void cancelarConsulta(Horario horario){
         System.out.println("As consultas atuais são:");
         for(Consulta c:this.getConsultasMarcadas()){
-            System.out.println("Consulta: " + c + "\nHorário:" + c.getHorario().print() + "\nUrgencia: " + c.getUrgencia());
+            System.out.println("Consulta: " + c.getHorario().print() + "\nUrgencia: " + c.getUrgencia());
         }
         for (Consulta m:this.consultasMarcadas){
             if (m.getHorario().getMes() == horario.getMes() &&
@@ -177,7 +177,7 @@ public class Medico extends Pessoa {
                 m.getHorario().getHora() == horario.getHora() &&
                 m.getHorario().getMinuto() == horario.getMinuto()
             ) {
-                System.out.println("Consulta de " + horario.print() + ", do médico " + m.getMedico() + " cancelada.");
+                System.out.println("Consulta de " + horario.print() + ", do médico " + m.getMedico().getNome() + " cancelada.");
                 this.consultasMarcadas.remove(m);
                 break;
             }
