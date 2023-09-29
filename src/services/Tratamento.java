@@ -73,7 +73,7 @@ public class Tratamento {
                 "\nR: ");
         String resp = scanner.next().toUpperCase();
         System.out.println("-----------------------\nO tratamento indicado pelo médico " +
-                this.getMedicoResponsavel() + " para o paciente é:");
+                this.getMedicoResponsavel().getNome() + " para o paciente é:");
         switch (resp) {
             case "S" -> {
                 Prescricao prescricao1 = new Prescricao(this.getMedicoResponsavel(), this.getRelatorio());
