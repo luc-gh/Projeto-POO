@@ -9,6 +9,8 @@
 |    Jorge Lucas   |  22112410 |
 | Gustavo Henrique |  22111978 |
 
+<strong>Monitora</strong>: Vanessa
+
 ### Descrição do Projeto
 <hr>
 
