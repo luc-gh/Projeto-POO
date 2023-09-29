@@ -149,6 +149,8 @@ public class Medico extends Pessoa {
 
     /**
      * Designa um tratamento para uma consulta.
+     *
+     * @param consulta A consulta para a qual um tratamento será designado.
      */
     public void designarTratamento(Consulta consulta){
         Tratamento tratamento = new Tratamento(this, "");
