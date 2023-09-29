@@ -240,9 +240,7 @@ public class Testes {
                         }
                     }
                 }
-                case 5 -> {
-                    isRunning = false;
-                }
+                case 5 -> isRunning = false;
                 default -> throw new RuntimeException("Essa opção é inválida. Erro no sistema.");
             }
         }

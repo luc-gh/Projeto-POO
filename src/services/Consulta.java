@@ -5,7 +5,6 @@ import entities.*;
 
 /**
  * A classe Consulta representa uma consulta médica no sistema.
- *
  * Ela mantém informações sobre o paciente, médico, horário, área de atuação, urgência e status da consulta.
  */
 public class Consulta {
@@ -98,15 +97,6 @@ public class Consulta {
     }
 
     /**
-     * Cancela a consulta, atualizando o status e removendo-a da lista de consultas marcadas do médico.
-     */
-    public void cancelarConsulta(){
-        this.setStatus(Status.Cancelada);
-        this.getMedico().getConsultasMarcadas().remove(this);
-        System.out.println("Esta consulta foi cancelada.");
-    }
-
-    /**
      * Realiza a consulta, atualizando o status e exibindo as orientações fornecidas.
      *
      * @param orientacoes As orientações dadas durante a consulta.
@@ -114,7 +104,7 @@ public class Consulta {
     public synchronized void realizarConsulta(String orientacoes){
         this.setStatus(Status.Realizada);
         System.out.println("Consulta realizada. \nOrientações: " + orientacoes + "\n");
-        this.getMedico().designarTratamento(orientacoes, this);
+        this.getMedico().designarTratamento(this);
     }
 
 

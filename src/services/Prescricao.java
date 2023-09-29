@@ -2,11 +2,9 @@ package services;
 
 import entities.Medico;
 import resources.Area;
-import resources.Pessoa;
 
 /**
  * A classe Prescricao representa uma prescrição médica no sistema.
- *
  * Ela mantém informações sobre a área de atuação do médico, o médico que emitiu a prescrição,
  * o paciente para o qual a prescrição foi feita e as dicas ou recomendações médicas.
  */
@@ -55,7 +53,6 @@ public class Prescricao {
 
     /**
      * Lista as prescrições recomendadas com base na área de atuação do médico.
-     *
      * Imprime a lista de prescrições recomendadas com base na especialidade do médico.
      * Se houver dicas adicionais na prescrição, elas também são exibidas.
      */

@@ -3,14 +3,11 @@ package entities;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import org.jetbrains.annotations.NotNull;
-
 import resources.*;
 import services.*;
 
 /**
 * A classe Medico representa um médico no sistema
-*
 * Ela herda da classe Pessoa e inclui informações específicas de um médico, como sua área de atuação,
 * horários disponíveis, horários marcados e consultas marcadas.
 */
@@ -141,7 +138,7 @@ public class Medico extends Pessoa {
      * @param urgencia O nível de urgência da consulta.
      */
     public void marcarConsulta(Pessoa paciente, Horario horario, Urgencia urgencia){
-        Consulta c = new Consulta(this, paciente, horario, urgencia);
+        new Consulta(this, paciente, horario, urgencia);
         this.getHorariosMarcados().add(horario);
         System.out.println("Consulta com o paciente " + paciente.getNome()
                 + " marcada com o Doutor " + this.getNome() +
@@ -152,9 +149,8 @@ public class Medico extends Pessoa {
 
     /**
      * Designa um tratamento para uma consulta.
-     * @param orientacoes  As orientações para o tratamento.
      */
-    public void designarTratamento(String orientacoes, Consulta consulta){
+    public void designarTratamento(Consulta consulta){
         Tratamento tratamento = new Tratamento(this, "");
         Scanner sc = new Scanner(System.in);
         System.out.print("Relatório: ");

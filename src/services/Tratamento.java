@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 /**
  * A classe Tratamento representa um tratamento médico no sistema.
- *
  * Ela mantém informações sobre o médico responsável pelo tratamento, o paciente, a urgência do tratamento,
  * a área de atuação do médico e um relatório opcional sobre o tratamento.
  */
