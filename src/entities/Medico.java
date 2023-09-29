@@ -157,7 +157,6 @@ public class Medico extends Pessoa {
         String s = sc.nextLine();
         if (s.length() > 5) tratamento.setRelatorio(s);
         tratamento.tratamento();
-        this.consultasMarcadas.remove(consulta);
     }
 
     /**

@@ -251,6 +251,7 @@ public class Testes {
                 String orientacoes = scanner.nextLine();
                 c.realizarConsulta(orientacoes);
             }
+            m.getConsultasMarcadas().clear();
         }
         System.out.println("\n-------------------------\nSistema encerrado.");
     }
